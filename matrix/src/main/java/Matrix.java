@@ -1,43 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 class Matrix {
 
-    List<List<Integer>> matrix;
+    int[][] matrix;
 
     Matrix(String matrixAsString) {
-        matrix = new ArrayList<>();
-        List<Integer> row = new ArrayList<>();
-
-        int number = 0;
-        for (int i = 0; i < matrixAsString.length(); i++) {
-            char c = matrixAsString.charAt(i);
-            if (Character.isDigit(c)) {
-                number *= 10;
-                number += Character.getNumericValue(c);
-            } else {
-                row.add(number);
-                number = 0;
-
-                if (c == '\n') {
-                    matrix.add(row);
-                    row = new ArrayList<>();
-                }
-            }
-        }
-        row.add(number);
-        matrix.add(row);
+        matrix = Arrays.stream(matrixAsString.split("\n"))
+                .map(row -> Arrays.stream(row.split("\\s"))
+                        .mapToInt(Integer::parseInt).toArray()
+                )
+                .toArray(int[][]::new);
     }
 
     int[] getRow(int rowNumber) {
-        return matrix.get(rowNumber - 1).stream().mapToInt(Integer::intValue).toArray();
+        return matrix[rowNumber - 1];
     }
 
     int[] getColumn(int columnNumber) {
-        int[] column = new int[matrix.size()];
-        for (int i = 0; i < matrix.size(); i++) {
-            column[i] = matrix.get(i).get(columnNumber - 1);
-        }
-        return column;
+        return Arrays.stream(matrix).mapToInt(row -> row[columnNumber - 1]).toArray();
     }
 }
