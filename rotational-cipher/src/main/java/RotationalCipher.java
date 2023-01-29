@@ -7,25 +7,22 @@ class RotationalCipher {
     }
 
     String rotate(String data) {
-        StringBuilder sb = new StringBuilder();
-
-        for (char c : data.toCharArray()) {
-            if (Character.isAlphabetic(c)) {
-                c = rotateChar(c);
-            }
-            sb.append(c);
-        }
-        return sb.toString();
+        return data.codePoints()
+                .mapToObj(this::rotateChar)
+                .collect(
+                        StringBuilder::new,
+                        StringBuilder::appendCodePoint,
+                        StringBuilder::append
+                )
+                .toString();
     }
 
-    private char rotateChar(char c) {
+    int rotateChar(int c) {
+        if(!Character.isLetter(c)) return c;
+
         int alphabetSize = 26;
         char firstChar = Character.isLowerCase(c) ? 'a' : 'A';
-
-        int currentIndex = c - firstChar;
-        int proposedIndex = currentIndex + shiftKey;
-        currentIndex = proposedIndex < alphabetSize ? proposedIndex : proposedIndex - alphabetSize;
-        return (char) (currentIndex + firstChar);
+        return firstChar + (c + shiftKey - firstChar) % alphabetSize;
     }
 
 }
