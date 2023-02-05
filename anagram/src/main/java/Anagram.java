@@ -1,10 +1,33 @@
-/*
+import java.util.List;
+import java.util.stream.Collectors;
 
-Since this exercise has a difficulty of > 4 it doesn't come
-with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
+public class Anagram {
 
-Please remove this comment when submitting your solution.
+    private final String originalWord;
+    private final List<Character> sortedLowerCaseLetters;
 
-*/
+    Anagram(String word) {
+        originalWord = word.toLowerCase();
+        sortedLowerCaseLetters = getSortedLowercaseLetters(originalWord);
+    }
+
+    public List<String> match(List<String> words) {
+        return words.stream()
+                .filter(this::isAnagram)
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    public boolean isAnagram(String word) {
+        return !word.equalsIgnoreCase(originalWord) &&
+                getSortedLowercaseLetters(word).equals(sortedLowerCaseLetters);
+    }
+
+    private List<Character> getSortedLowercaseLetters(String toSort) {
+        return toSort.chars()
+                .mapToObj(c -> (char) c)
+                .map(Character::toLowerCase)
+                .sorted()
+                .collect(Collectors.toList());
+    }
+}
