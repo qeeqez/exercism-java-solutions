@@ -2,7 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.Assertions.assertTrue;
 
 public class PangramCheckerTest {
 
@@ -20,12 +20,12 @@ public class PangramCheckerTest {
 
     @Test
     public void perfectLowerCasePhraseIsPangram() {
-        assertTrue(pangramChecker.isPangram("abcdefghijklmnopqrstuvwxyz"));
+        Assertions.assertTrue(pangramChecker.isPangram("abcdefghijklmnopqrstuvwxyz"));
     }
 
     @Test
     public void phraseWithOnlyLowerCaseIsPangram() {
-        assertTrue(pangramChecker.isPangram("the quick brown fox jumps over the lazy dog"));
+        Assertions.assertTrue(pangramChecker.isPangram("the quick brown fox jumps over the lazy dog"));
     }
 
     @Test
@@ -40,12 +40,12 @@ public class PangramCheckerTest {
 
     @Test
     public void phraseWithUnderscoresIsPangram() {
-        assertTrue(pangramChecker.isPangram("the_quick_brown_fox_jumps_over_the_lazy_dog"));
+        Assertions.assertTrue(pangramChecker.isPangram("the_quick_brown_fox_jumps_over_the_lazy_dog"));
     }
 
     @Test
     public void phraseWithNumbersIsPangram() {
-        assertTrue(pangramChecker.isPangram("the 1 quick brown fox jumps over the 2 lazy dogs"));
+        Assertions.assertTrue(pangramChecker.isPangram("the 1 quick brown fox jumps over the 2 lazy dogs"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class PangramCheckerTest {
 
     @Test
     public void phraseWithMixedCaseAndPunctuationIsPangram() {
-        assertTrue(pangramChecker.isPangram("\"Five quacking Zephyrs jolt my wax bed.\""));
+        Assertions.assertTrue(pangramChecker.isPangram("\"Five quacking Zephyrs jolt my wax bed.\""));
     }
 
     @Test

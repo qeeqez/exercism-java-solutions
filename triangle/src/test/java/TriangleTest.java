@@ -8,7 +8,7 @@ public class TriangleTest {
     public void equilateralTrianglesHaveEqualSides() throws TriangleException {
         Triangle triangle = new Triangle(2, 2, 2);
 
-        assertTrue(triangle.isEquilateral());
+        Assertions.assertTrue(triangle.isEquilateral());
     }
 
     @Test
@@ -36,35 +36,35 @@ public class TriangleTest {
     public void verySmallTrianglesCanBeEquilateral() throws TriangleException {
         Triangle triangle = new Triangle(0.5, 0.5, 0.5);
 
-        assertTrue(triangle.isEquilateral());
+        Assertions.assertTrue(triangle.isEquilateral());
     }
 
     @Test
     public void isoscelesTrianglesHaveLastTwoSidesEqual() throws TriangleException {
         Triangle triangle = new Triangle(3, 4, 4);
 
-        assertTrue(triangle.isIsosceles());
+        Assertions.assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void isoscelesTrianglesHaveTwoFirstSidesEqual() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 3);
 
-        assertTrue(triangle.isIsosceles());
+        Assertions.assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void isoscelesTrianglesHaveFirstAndLastSidesEqual() throws TriangleException {
         Triangle triangle = new Triangle(4, 3, 4);
 
-        assertTrue(triangle.isIsosceles());
+        Assertions.assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void equilateralTrianglesAreAlsoIsosceles() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 4);
 
-        assertTrue(triangle.isIsosceles());
+        Assertions.assertTrue(triangle.isIsosceles());
     }
 
     @Test
@@ -99,14 +99,14 @@ public class TriangleTest {
     public void verySmallTrianglesCanBeIsosceles() throws TriangleException {
         Triangle triangle = new Triangle(0.5, 0.4, 0.5);
 
-        assertTrue(triangle.isIsosceles());
+        Assertions.assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void scaleneTrianglesHaveNoEqualSides() throws TriangleException {
         Triangle triangle = new Triangle(5, 4, 6);
 
-        assertTrue(triangle.isScalene());
+        Assertions.assertTrue(triangle.isScalene());
     }
 
     @Test
@@ -134,6 +134,6 @@ public class TriangleTest {
     public void verySmallTrianglesCanBeScalene() throws TriangleException {
         Triangle triangle = new Triangle(0.5, 0.4, 0.6);
 
-        assertTrue(triangle.isScalene());
+        Assertions.assertTrue(triangle.isScalene());
     }
 }

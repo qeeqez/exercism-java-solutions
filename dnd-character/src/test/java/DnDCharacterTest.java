@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
-import static org.junit.Assert.assertTrue;
 
 public class DnDCharacterTest {
 
@@ -90,19 +89,19 @@ public class DnDCharacterTest {
     @Test
     public void testRandomAbilityIsWithinRange() {
         int score = dndCharacter.ability();
-        assertTrue(score > 2 && score < 19);
+        Assertions.assertTrue(score > 2 && score < 19);
     }
 
     @Test
     public void testRandomCharacterIsValid() {
         for (int i = 0; i < 1000; i++) {
             DnDCharacter character = new DnDCharacter();
-            assertTrue(character.getStrength() > 2 && character.getStrength() < 19);
-            assertTrue(character.getDexterity() > 2 && character.getDexterity() < 19);
-            assertTrue(character.getConstitution() > 2 && character.getConstitution() < 19);
-            assertTrue(character.getIntelligence() > 2 && character.getIntelligence() < 19);
-            assertTrue(character.getWisdom() > 2 && character.getWisdom() < 19);
-            assertTrue(character.getCharisma() > 2 && character.getCharisma() < 19);
+            Assertions.assertTrue(character.getStrength() > 2 && character.getStrength() < 19);
+            Assertions.assertTrue(character.getDexterity() > 2 && character.getDexterity() < 19);
+            Assertions.assertTrue(character.getConstitution() > 2 && character.getConstitution() < 19);
+            Assertions.assertTrue(character.getIntelligence() > 2 && character.getIntelligence() < 19);
+            Assertions.assertTrue(character.getWisdom() > 2 && character.getWisdom() < 19);
+            Assertions.assertTrue(character.getCharisma() > 2 && character.getCharisma() < 19);
             Assertions.assertEquals(character.getHitpoints(),
                     10 + character.modifier(character.getConstitution()));
         }
