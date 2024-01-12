@@ -3,7 +3,6 @@
  *
  * The settings file is used to specify which projects to include in your build.
  * For more detailed information on multi-project builds, please refer to https://docs.gradle.org/8.5/userguide/building_swift_projects.html in the Gradle documentation.
- * This project uses @Incubating APIs which are subject to change.
  */
 
 rootProject.name = 'exercism-java-solutions'
@@ -19,3 +18,4 @@ def projectPaths = subdirs.collect { ':' + it.name }
 
 // Include the project paths in the settings
 include projectPaths
+
