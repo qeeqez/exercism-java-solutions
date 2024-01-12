@@ -74,7 +74,7 @@ That should make the error go away, though you might need to add some more code 
 You might also get an error similar to:
 ```
   error: cannot find symbol
-        Assertions.assertThat(exerciseClassName.someMethod()).isEqualTo(expectedOutput);
+        assertThat(exerciseClassName.someMethod()).isEqualTo(expectedOutput);
                                      ^
   symbol:   method someMethod()
   location: variable exerciseClassName of type ExerciseClassName

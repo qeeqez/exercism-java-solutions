@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class TwoferTest {
 
@@ -15,19 +15,19 @@ public class TwoferTest {
 
     @Test
     public void noNameGiven() {
-        Assertions.assertThat(twofer.twofer(null))
+        assertThat(twofer.twofer(null))
                 .isEqualTo("One for you, one for me.");
     }
 
     @Test
     public void aNameGiven() {
-        Assertions.assertThat(twofer.twofer("Alice"))
+        assertThat(twofer.twofer("Alice"))
                 .isEqualTo("One for Alice, one for me.");
     }
 
     @Test
     public void anotherNameGiven() {
-        Assertions.assertThat(twofer.twofer("Bob"))
+        assertThat(twofer.twofer("Bob"))
                 .isEqualTo("One for Bob, one for me.");
     }
 

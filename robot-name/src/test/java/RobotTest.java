@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class RobotTest {
 
@@ -23,7 +24,7 @@ public class RobotTest {
 
     @Test
     public void differentRobotsHaveDifferentNames() {
-        Assertions.assertThat(robot.getName()).isNotEqualTo(new Robot().getName());
+        assertThat(robot.getName()).isNotEqualTo(new Robot().getName());
     }
 
     @Test
@@ -31,7 +32,7 @@ public class RobotTest {
         final String name = robot.getName();
         robot.reset();
         final String name2 = robot.getName();
-        Assertions.assertThat(name).isNotEqualTo(name2);
+        assertThat(name).isNotEqualTo(name2);
         assertIsValidName(name2);
     }
     
@@ -42,10 +43,10 @@ public class RobotTest {
         for (int i = 0; i < sampleSize; i++) {
             robotNames.add(new Robot().getName());
         }
-        Assertions.assertThat(robotNames).hasSize(sampleSize);
+        assertThat(robotNames).hasSize(sampleSize);
     }
 
     private static void assertIsValidName(String name) {
-        Assertions.assertThat(name).matches(EXPECTED_ROBOT_NAME_PATTERN);
+        assertThat(name).matches(EXPECTED_ROBOT_NAME_PATTERN);
     }
 }

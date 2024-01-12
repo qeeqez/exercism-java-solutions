@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class KnapsackTest {
@@ -18,7 +18,7 @@ public class KnapsackTest {
     @Test
     public void testNoItems() {
         List<Item> items = List.of();
-        Assertions.assertThat(knapsack.maximumValue(100, items)).isEqualTo(0);
+        assertThat(knapsack.maximumValue(100, items)).isEqualTo(0);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class KnapsackTest {
                 new Item(100, 1)
         );
 
-        Assertions.assertThat(knapsack.maximumValue(10, items)).isEqualTo(0);
+        assertThat(knapsack.maximumValue(10, items)).isEqualTo(0);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class KnapsackTest {
                 new Item(10, 21)
         );
 
-        Assertions.assertThat(knapsack.maximumValue(10, items)).isEqualTo(21);
+        assertThat(knapsack.maximumValue(10, items)).isEqualTo(21);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class KnapsackTest {
                 new Item(10, 50)
         );
 
-        Assertions.assertThat(knapsack.maximumValue(10, items)).isEqualTo(80);
+        assertThat(knapsack.maximumValue(10, items)).isEqualTo(80);
     }
 
     @Test
@@ -65,7 +65,7 @@ public class KnapsackTest {
                 new Item(4, 50)
         );
 
-        Assertions.assertThat(knapsack.maximumValue(10, items)).isEqualTo(90);
+        assertThat(knapsack.maximumValue(10, items)).isEqualTo(90);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class KnapsackTest {
                 new Item(2, 5)
         );
 
-        Assertions.assertThat(knapsack.maximumValue(104, items)).isEqualTo(900);
+        assertThat(knapsack.maximumValue(104, items)).isEqualTo(900);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class KnapsackTest {
                 new Item(120, 240)
         );
 
-        Assertions.assertThat(knapsack.maximumValue(750, items)).isEqualTo(1458);
+        assertThat(knapsack.maximumValue(750, items)).isEqualTo(1458);
     }
 
 }

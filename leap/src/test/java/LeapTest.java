@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class LeapTest {
 
     private Leap leap;
@@ -13,47 +16,47 @@ public class LeapTest {
 
     @Test
     public void testYearNotDivBy4InCommonYear() {
-        Assertions.assertFalse(leap.isLeapYear(2015));
+        assertFalse(leap.isLeapYear(2015));
     }
 
     @Test
     public void testYearDivBy2NotDivBy4InCommonYear() {
-        Assertions.assertFalse(leap.isLeapYear(1970));
+        assertFalse(leap.isLeapYear(1970));
     }
 
     @Test
     public void testYearDivBy4NotDivBy100InLeapYear() {
-        Assertions.assertTrue(leap.isLeapYear(1996));
+        assertTrue(leap.isLeapYear(1996));
     }
 
     @Test
     public void testYearDivBy4And5InLeapYear() {
-        Assertions.assertTrue(leap.isLeapYear(1960));
+        assertTrue(leap.isLeapYear(1960));
     }
 
     @Test
     public void testYearDivBy100NotDivBy400InCommonYear() {
-        Assertions.assertFalse(leap.isLeapYear(2100));
+        assertFalse(leap.isLeapYear(2100));
     }
 
     @Test
     public void testYearDivBy100NotDivBy3IsNotLeapYear() {
-        Assertions.assertFalse(leap.isLeapYear(1900));
+        assertFalse(leap.isLeapYear(1900));
     }
 
     @Test
     public void testYearDivBy400InLeapYear() {
-        Assertions.assertTrue(leap.isLeapYear(2000));
+        assertTrue(leap.isLeapYear(2000));
     }
 
     @Test
     public void testYearDivBy400NotDivBy125IsLeapYear() {
-        Assertions.assertTrue(leap.isLeapYear(2400));
+        assertTrue(leap.isLeapYear(2400));
     }
 
     @Test
     public void testYearDivBy200NotDivBy400InCommonYear() {
-        Assertions.assertFalse(leap.isLeapYear(1800));
+        assertFalse(leap.isLeapYear(1800));
     }
 
 }

@@ -2,9 +2,10 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Assertions;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class GrainsTest {
 
@@ -13,43 +14,43 @@ public class GrainsTest {
     @Test
     public void countAtSquare1() {
         BigInteger result = grains.grainsOnSquare(1);
-        Assertions.assertEquals(new BigInteger("1"), result);
+        assertEquals(new BigInteger("1"), result);
     }
 
     @Test
     public void countAtSquare2() {
         BigInteger result = grains.grainsOnSquare(2);
-        Assertions.assertEquals(new BigInteger("2"), result);
+        assertEquals(new BigInteger("2"), result);
     }
 
     @Test
     public void countAtSquare3() {
         BigInteger result = grains.grainsOnSquare(3);
-        Assertions.assertEquals(new BigInteger("4"), result);
+        assertEquals(new BigInteger("4"), result);
     }
 
     @Test
     public void countAtSquare4() {
         BigInteger result = grains.grainsOnSquare(4);
-        Assertions.assertEquals(new BigInteger("8"), result);
+        assertEquals(new BigInteger("8"), result);
     }
 
     @Test
     public void countAtSquare16() {
         BigInteger result = grains.grainsOnSquare(16);
-        Assertions.assertEquals(new BigInteger("32768"), result);
+        assertEquals(new BigInteger("32768"), result);
     }
 
     @Test
     public void countAtSquare32() {
         BigInteger result = grains.grainsOnSquare(32);
-        Assertions.assertEquals(new BigInteger("2147483648"), result);
+        assertEquals(new BigInteger("2147483648"), result);
     }
 
     @Test
     public void countAtSquare64() {
         BigInteger result = grains.grainsOnSquare(64);
-        Assertions.assertEquals(new BigInteger("9223372036854775808"), result);
+        assertEquals(new BigInteger("9223372036854775808"), result);
     }
 
     @Test
@@ -59,7 +60,7 @@ public class GrainsTest {
                 IllegalArgumentException.class,
                 () -> grains.grainsOnSquare(0));
 
-        Assertions.assertThat(expected)
+        assertThat(expected)
             .hasMessage("square must be between 1 and 64");
     }
 
@@ -70,7 +71,7 @@ public class GrainsTest {
                 IllegalArgumentException.class,
                 () -> grains.grainsOnSquare(-1));
 
-        Assertions.assertThat(expected)
+        assertThat(expected)
             .hasMessage("square must be between 1 and 64");
     }
 
@@ -81,14 +82,14 @@ public class GrainsTest {
                 IllegalArgumentException.class,
                 () -> grains.grainsOnSquare(65));
 
-        Assertions.assertThat(expected)
+        assertThat(expected)
             .hasMessage("square must be between 1 and 64");
     }
 
     @Test
     public void totalNumberOfGrainsOnABoard() {
         BigInteger total = grains.grainsOnBoard();
-        Assertions.assertEquals(new BigInteger("18446744073709551615"), total);
+        assertEquals(new BigInteger("18446744073709551615"), total);
     }
 
 }

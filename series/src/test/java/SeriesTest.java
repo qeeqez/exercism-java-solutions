@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Assertions;
 
 public class SeriesTest {
@@ -14,7 +16,7 @@ public class SeriesTest {
         Series series = new Series("1");
         List<String> expected = Collections.singletonList("1");
         List<String> actual = series.slices(1);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -22,7 +24,7 @@ public class SeriesTest {
         Series series = new Series("12");
         List<String> expected = Arrays.asList("1", "2");
         List<String> actual = series.slices(1);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -30,7 +32,7 @@ public class SeriesTest {
         Series series = new Series("35");
         List<String> expected = Collections.singletonList("35");
         List<String> actual = series.slices(2);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -38,7 +40,7 @@ public class SeriesTest {
         Series series = new Series("9142");
         List<String> expected = Arrays.asList("91", "14", "42");
         List<String> actual = series.slices(2);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -51,7 +53,7 @@ public class SeriesTest {
                 "777"
         );
         List<String> actual = series.slices(3);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -68,14 +70,14 @@ public class SeriesTest {
                 "04243"
         );
         List<String> actual = series.slices(5);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     public void sliceLengthIsToolarge() {
         Series series = new Series("12345");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(6))
                 .withMessage("Slice size is too big.");
     }
@@ -84,7 +86,7 @@ public class SeriesTest {
     public void sliceLengthZero() {
         Series series = new Series("12345");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(0))
                 .withMessage("Slice size is too small.");
     }
@@ -93,7 +95,7 @@ public class SeriesTest {
     public void sliceLengthNegative() {
         Series series = new Series("123");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(-1))
                 .withMessage("Slice size is too small.");
     }
@@ -102,7 +104,7 @@ public class SeriesTest {
     public void emptySeries() {
         Series series = new Series("");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(1))
                 .withMessage("Slice size is too big.");
     }

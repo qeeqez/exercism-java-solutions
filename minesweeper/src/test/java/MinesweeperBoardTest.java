@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MinesweeperBoardTest {
 
     @Test
@@ -14,7 +16,7 @@ public class MinesweeperBoardTest {
         List<String> expectedNumberedBoard = Collections.emptyList();
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -23,7 +25,7 @@ public class MinesweeperBoardTest {
         List<String> expectedNumberedBoard = Collections.singletonList("");
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -42,7 +44,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -61,7 +63,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -80,7 +82,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -99,7 +101,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -114,7 +116,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -129,7 +131,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -152,7 +154,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -175,7 +177,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -198,7 +200,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -223,7 +225,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
 }

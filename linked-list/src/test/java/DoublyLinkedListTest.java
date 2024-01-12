@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class DoublyLinkedListTest {
 
@@ -12,9 +13,9 @@ public class DoublyLinkedListTest {
         list.push(20);
         list.push(30);
 
-        Assertions.assertThat(list.pop()).isEqualTo(30);
-        Assertions.assertThat(list.pop()).isEqualTo(20);
-        Assertions.assertThat(list.pop()).isEqualTo(10);
+        assertThat(list.pop()).isEqualTo(30);
+        assertThat(list.pop()).isEqualTo(20);
+        assertThat(list.pop()).isEqualTo(10);
     }
 
     @Test
@@ -25,9 +26,9 @@ public class DoublyLinkedListTest {
         list.push("20");
         list.push("30");
 
-        Assertions.assertThat(list.shift()).isEqualTo("10");
-        Assertions.assertThat(list.shift()).isEqualTo("20");
-        Assertions.assertThat(list.shift()).isEqualTo("30");
+        assertThat(list.shift()).isEqualTo("10");
+        assertThat(list.shift()).isEqualTo("20");
+        assertThat(list.shift()).isEqualTo("30");
     }
 
     @Test
@@ -38,9 +39,9 @@ public class DoublyLinkedListTest {
         list.unshift('2');
         list.unshift('3');
 
-        Assertions.assertThat(list.shift()).isEqualTo('3');
-        Assertions.assertThat(list.shift()).isEqualTo('2');
-        Assertions.assertThat(list.shift()).isEqualTo('1');
+        assertThat(list.shift()).isEqualTo('3');
+        assertThat(list.shift()).isEqualTo('2');
+        assertThat(list.shift()).isEqualTo('1');
     }
 
     @Test
@@ -51,9 +52,9 @@ public class DoublyLinkedListTest {
         list.unshift(20);
         list.unshift(30);
 
-        Assertions.assertThat(list.pop()).isEqualTo(10);
-        Assertions.assertThat(list.pop()).isEqualTo(20);
-        Assertions.assertThat(list.pop()).isEqualTo(30);
+        assertThat(list.pop()).isEqualTo(10);
+        assertThat(list.pop()).isEqualTo(20);
+        assertThat(list.pop()).isEqualTo(30);
     }
 
     @Test
@@ -63,18 +64,18 @@ public class DoublyLinkedListTest {
         list.push("ten");
         list.push("twenty");
 
-        Assertions.assertThat(list.pop()).isEqualTo("twenty");
+        assertThat(list.pop()).isEqualTo("twenty");
 
         list.push("thirty");
 
-        Assertions.assertThat(list.shift()).isEqualTo("ten");
+        assertThat(list.shift()).isEqualTo("ten");
 
         list.unshift("forty");
         list.push("fifty");
 
-        Assertions.assertThat(list.shift()).isEqualTo("forty");
-        Assertions.assertThat(list.pop()).isEqualTo("fifty");
-        Assertions.assertThat(list.shift()).isEqualTo("thirty");
+        assertThat(list.shift()).isEqualTo("forty");
+        assertThat(list.pop()).isEqualTo("fifty");
+        assertThat(list.shift()).isEqualTo("thirty");
     }
 
 }

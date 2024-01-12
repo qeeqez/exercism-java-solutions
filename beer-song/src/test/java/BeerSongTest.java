@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class BeerSongTest {
 
@@ -14,7 +15,7 @@ public class BeerSongTest {
 
     @Test
     public void singFirstVerse() {
-        Assertions.assertThat(beerSong.sing(99, 1)).isEqualTo("""
+        assertThat(beerSong.sing(99, 1)).isEqualTo("""
                 99 bottles of beer on the wall, 99 bottles of beer.
                 Take one down and pass it around, 98 bottles of beer on the wall.
 
@@ -23,7 +24,7 @@ public class BeerSongTest {
 
     @Test
     public void singLastGenericVerse() {
-        Assertions.assertThat(beerSong.sing(3, 1)).isEqualTo("""
+        assertThat(beerSong.sing(3, 1)).isEqualTo("""
                 3 bottles of beer on the wall, 3 bottles of beer.
                 Take one down and pass it around, 2 bottles of beer on the wall.
 
@@ -32,7 +33,7 @@ public class BeerSongTest {
 
     @Test
     public void verseWithTwoBottles() {
-        Assertions.assertThat(beerSong.sing(2, 1)).isEqualTo("""
+        assertThat(beerSong.sing(2, 1)).isEqualTo("""
                 2 bottles of beer on the wall, 2 bottles of beer.
                 Take one down and pass it around, 1 bottle of beer on the wall.
 
@@ -41,7 +42,7 @@ public class BeerSongTest {
 
     @Test
     public void verseWithOneBottle() {
-        Assertions.assertThat(beerSong.sing(1, 1)).isEqualTo("""
+        assertThat(beerSong.sing(1, 1)).isEqualTo("""
                 1 bottle of beer on the wall, 1 bottle of beer.
                 Take it down and pass it around, no more bottles of beer on the wall.
 
@@ -50,7 +51,7 @@ public class BeerSongTest {
 
     @Test
     public void verseWithZeroBottles() {
-        Assertions.assertThat(beerSong.sing(0, 1)).isEqualTo("""
+        assertThat(beerSong.sing(0, 1)).isEqualTo("""
                 No more bottles of beer on the wall, no more bottles of beer.
                 Go to the store and buy some more, 99 bottles of beer on the wall.
 
@@ -59,7 +60,7 @@ public class BeerSongTest {
 
     @Test
     public void singFirstTwoVerses() {
-        Assertions.assertThat(beerSong.sing(99, 2)).isEqualTo("""
+        assertThat(beerSong.sing(99, 2)).isEqualTo("""
                 99 bottles of beer on the wall, 99 bottles of beer.
                 Take one down and pass it around, 98 bottles of beer on the wall.
 
@@ -71,7 +72,7 @@ public class BeerSongTest {
 
     @Test
     public void singLastThreeVerses() {
-        Assertions.assertThat(beerSong.sing(2, 3)).isEqualTo("""
+        assertThat(beerSong.sing(2, 3)).isEqualTo("""
                 2 bottles of beer on the wall, 2 bottles of beer.
                 Take one down and pass it around, 1 bottle of beer on the wall.
 
@@ -86,7 +87,7 @@ public class BeerSongTest {
 
     @Test
     public void singEntireSong() {
-        Assertions.assertThat(beerSong.singSong())
+        assertThat(beerSong.singSong())
             .isEqualTo("""
                     99 bottles of beer on the wall, 99 bottles of beer.
                     Take one down and pass it around, 98 bottles of beer on the wall.

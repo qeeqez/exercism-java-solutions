@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class FoodChainTest {
     private FoodChain foodChain;
 
@@ -17,7 +19,7 @@ public class FoodChainTest {
         String expected = "I know an old lady who swallowed a fly.\n" +
                           "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
     @Test
@@ -29,7 +31,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
     @Test
@@ -42,7 +44,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
     @Test
@@ -56,7 +58,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
 
@@ -72,7 +74,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
     @Test
@@ -88,7 +90,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
     @Test
@@ -105,7 +107,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
     @Test
@@ -114,7 +116,7 @@ public class FoodChainTest {
         String expected = "I know an old lady who swallowed a horse.\n" +
                           "She's dead, of course!";
 
-        Assertions.assertEquals(expected, foodChain.verse(verse));
+        assertEquals(expected, foodChain.verse(verse));
     }
 
 
@@ -137,7 +139,7 @@ public class FoodChainTest {
                 She swallowed the spider to catch the fly.
                 I don't know why she swallowed the fly. Perhaps she'll die.""";
 
-        Assertions.assertEquals(expected, foodChain.verses(startVerse, endVerse));
+        assertEquals(expected, foodChain.verses(startVerse, endVerse));
     }
 
 
@@ -197,6 +199,6 @@ public class FoodChainTest {
                 I know an old lady who swallowed a horse.
                 She's dead, of course!""";
 
-        Assertions.assertEquals(expected, foodChain.verses(startVerse, endVerse));
+        assertEquals(expected, foodChain.verses(startVerse, endVerse));
     }
 }

@@ -2,8 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import org.assertj.core.api.Assertions;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class NucleotideCounterTest {
 
@@ -11,7 +11,7 @@ public class NucleotideCounterTest {
     public void testEmptyDnaStringHasNoNucleotides() {
         NucleotideCounter nucleotideCounter = new NucleotideCounter("");
 
-        Assertions.assertThat(nucleotideCounter.nucleotideCounts())
+        assertThat(nucleotideCounter.nucleotideCounts())
             .containsExactlyInAnyOrderEntriesOf(
                 Map.of('A', 0, 'C', 0, 'G', 0, 'T', 0));
     }
@@ -20,7 +20,7 @@ public class NucleotideCounterTest {
     public void testDnaStringHasOneNucleotide() {
         NucleotideCounter nucleotideCounter = new NucleotideCounter("G");
 
-        Assertions.assertThat(nucleotideCounter.nucleotideCounts())
+        assertThat(nucleotideCounter.nucleotideCounts())
             .containsExactlyInAnyOrderEntriesOf(
                 Map.of('A', 0, 'C', 0, 'G', 1, 'T', 0));
     }
@@ -29,7 +29,7 @@ public class NucleotideCounterTest {
     public void testRepetitiveSequenceWithOnlyGuanine() {
         NucleotideCounter nucleotideCounter = new NucleotideCounter("GGGGGGG");
 
-        Assertions.assertThat(nucleotideCounter.nucleotideCounts())
+        assertThat(nucleotideCounter.nucleotideCounts())
             .containsExactlyInAnyOrderEntriesOf(
                 Map.of('A', 0, 'C', 0, 'G', 7, 'T', 0));
     }
@@ -39,7 +39,7 @@ public class NucleotideCounterTest {
         NucleotideCounter nucleotideCounter
             = new NucleotideCounter("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
 
-        Assertions.assertThat(nucleotideCounter.nucleotideCounts())
+        assertThat(nucleotideCounter.nucleotideCounts())
             .containsExactlyInAnyOrderEntriesOf(
                 Map.of('A', 20, 'C', 12, 'G', 17, 'T', 21));
     }

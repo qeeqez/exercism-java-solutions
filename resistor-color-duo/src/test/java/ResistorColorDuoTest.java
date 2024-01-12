@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class ResistorColorDuoTest {
     private ResistorColorDuo resistorColorDuo;
@@ -13,35 +14,35 @@ public class ResistorColorDuoTest {
 
     @Test
     public void testBrownAndBlack() {
-        Assertions.assertThat(
+        assertThat(
                 resistorColorDuo.value(new String[]{"brown", "black"})
         ).isEqualTo(10);
     }
 
     @Test
     public void testBlueAndGrey() {
-        Assertions.assertThat(
+        assertThat(
                 resistorColorDuo.value(new String[]{ "blue", "grey" })
         ).isEqualTo(68);
     }
 
     @Test
     public void testYellowAndViolet() {
-        Assertions.assertThat(resistorColorDuo.value(
+        assertThat(resistorColorDuo.value(
                 new String[]{ "yellow", "violet" })
         ).isEqualTo(47);
     }
 
     @Test
     public void testOrangeAndOrange() {
-        Assertions.assertThat(
+        assertThat(
                 resistorColorDuo.value(new String[]{ "orange", "orange" })
         ).isEqualTo(33);
     }
 
     @Test
     public void testIgnoreAdditionalColors() {
-        Assertions.assertThat(
+        assertThat(
                 resistorColorDuo.value(new String[]{ "green", "brown", "orange" })
         ).isEqualTo(51);
     }

@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class LuhnValidatorTest {
     private LuhnValidator luhnValidator;
 
@@ -12,93 +15,93 @@ public class LuhnValidatorTest {
 
     @Test
     public void testSingleDigitStringInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("1"));
+        assertFalse(luhnValidator.isValid("1"));
     }
 
     @Test
     public void testSingleZeroIsInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("0"));
+        assertFalse(luhnValidator.isValid("0"));
     }
 
     @Test
     public void testSimpleValidSINReversedRemainsValid() {
-        Assertions.assertTrue(luhnValidator.isValid("059"));
+        assertTrue(luhnValidator.isValid("059"));
     }
 
     @Test
     public void testSimpleValidSINReversedBecomesInvalid() {
-        Assertions.assertTrue(luhnValidator.isValid("59"));
+        assertTrue(luhnValidator.isValid("59"));
     }
 
     @Test
     public void testValidCanadianSINValid() {
-        Assertions.assertTrue(luhnValidator.isValid("055 444 285"));
+        assertTrue(luhnValidator.isValid("055 444 285"));
     }
 
     @Test
     public void testInvalidCanadianSINInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("055 444 286"));
+        assertFalse(luhnValidator.isValid("055 444 286"));
     }
 
     @Test
     public void testInvalidCreditCardInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("8273 1232 7352 0569"));
+        assertFalse(luhnValidator.isValid("8273 1232 7352 0569"));
     }
 
     @Test
     public void testInvalidLongNumberWithAnEvenRemainder() {
-        Assertions.assertFalse(luhnValidator.isValid("1 2345 6789 1234 5678 9012"));
+        assertFalse(luhnValidator.isValid("1 2345 6789 1234 5678 9012"));
     }
 
     @Test
     public void testValidNumberWithAnEvenNumberOfDigits() {
-        Assertions.assertTrue(luhnValidator.isValid("095 245 88"));
+        assertTrue(luhnValidator.isValid("095 245 88"));
     }
 
     @Test
     public void testValidNumberWithAnOddNumberOfSpaces() {
-        Assertions.assertTrue(luhnValidator.isValid("234 567 891 234"));
+        assertTrue(luhnValidator.isValid("234 567 891 234"));
     }
 
     @Test
     public void testValidStringsWithANonDigitAtEndInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("059a"));
+        assertFalse(luhnValidator.isValid("059a"));
     }
 
     @Test
     public void testStringContainingPunctuationInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("055-444-285"));
+        assertFalse(luhnValidator.isValid("055-444-285"));
     }
 
     @Test
     public void testStringContainingSymbolsInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid("055# 444$ 285"));
+        assertFalse(luhnValidator.isValid("055# 444$ 285"));
     }
 
     @Test
     public void testSingleSpaceWithZeroInvalid() {
-        Assertions.assertFalse(luhnValidator.isValid(" 0"));
+        assertFalse(luhnValidator.isValid(" 0"));
     }
 
     @Test
     public void testMoreThanSingleZeroValid() {
-        Assertions.assertTrue(luhnValidator.isValid("0000 0"));
+        assertTrue(luhnValidator.isValid("0000 0"));
     }
 
     @Test
     public void testDigitNineConvertedToOutputNine() {
-        Assertions.assertTrue(luhnValidator.isValid("091"));
+        assertTrue(luhnValidator.isValid("091"));
     }
 
 
     @Test
     public void testUsingASCIIValueForNonDoubledNonDigitNotAllowed() {
-        Assertions.assertFalse(luhnValidator.isValid("055b 444 285"));
+        assertFalse(luhnValidator.isValid("055b 444 285"));
     }
 
     @Test
     public void testUsingASCIIValueForDoubledNonDigitNotAllowed() {
-        Assertions.assertFalse(luhnValidator.isValid(":9"));
+        assertFalse(luhnValidator.isValid(":9"));
     }
 
     /* The following test diverges from the canonical test data. This is because the corresponding canonical test does
@@ -108,6 +111,6 @@ public class LuhnValidatorTest {
     */
     @Test
     public void testStringContainingSymbolsInvalidJavaTrackSpecific() {
-        Assertions.assertFalse(luhnValidator.isValid("85&"));
+        assertFalse(luhnValidator.isValid("85&"));
     }
 }

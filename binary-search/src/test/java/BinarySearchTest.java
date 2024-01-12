@@ -1,8 +1,11 @@
-import org.assertj.core.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class BinarySearchTest {
 
@@ -12,7 +15,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(listOfUnitLength);
 
-        Assertions.assertThat(search.indexOf(6)).isEqualTo(0);
+        assertThat(search.indexOf(6)).isEqualTo(0);
     }
 
     @Test
@@ -21,7 +24,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThat(search.indexOf(6)).isEqualTo(3);
+        assertThat(search.indexOf(6)).isEqualTo(3);
     }
 
     @Test
@@ -30,7 +33,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThat(search.indexOf(1)).isEqualTo(0);
+        assertThat(search.indexOf(1)).isEqualTo(0);
     }
 
     @Test
@@ -39,7 +42,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThat(search.indexOf(11)).isEqualTo(6);
+        assertThat(search.indexOf(11)).isEqualTo(6);
     }
 
     @Test
@@ -48,7 +51,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedListOfOddLength);
 
-        Assertions.assertThat(search.indexOf(144)).isEqualTo(9);
+        assertThat(search.indexOf(144)).isEqualTo(9);
     }
 
     @Test
@@ -57,7 +60,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedListOfEvenLength);
 
-        Assertions.assertThat(search.indexOf(21)).isEqualTo(5);
+        assertThat(search.indexOf(21)).isEqualTo(5);
     }
 
     @Test
@@ -66,7 +69,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThatExceptionOfType(ValueNotFoundException.class)
+        assertThatExceptionOfType(ValueNotFoundException.class)
                 .isThrownBy(() -> search.indexOf(7))
                 .withMessage("Value not in array");
     }
@@ -77,7 +80,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThatExceptionOfType(ValueNotFoundException.class)
+        assertThatExceptionOfType(ValueNotFoundException.class)
                 .isThrownBy(() -> search.indexOf(0))
                 .withMessage("Value not in array");
     }
@@ -88,7 +91,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThatExceptionOfType(ValueNotFoundException.class)
+        assertThatExceptionOfType(ValueNotFoundException.class)
                 .isThrownBy(() -> search.indexOf(13))
                 .withMessage("Value not in array");
     }
@@ -99,7 +102,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(emptyList);
 
-        Assertions.assertThatExceptionOfType(ValueNotFoundException.class)
+        assertThatExceptionOfType(ValueNotFoundException.class)
                 .isThrownBy(() -> search.indexOf(1))
                 .withMessage("Value not in array");
     }
@@ -110,7 +113,7 @@ public class BinarySearchTest {
 
         BinarySearch search = new BinarySearch(sortedList);
 
-        Assertions.assertThatExceptionOfType(ValueNotFoundException.class)
+        assertThatExceptionOfType(ValueNotFoundException.class)
                 .isThrownBy(() -> search.indexOf(0))
                 .withMessage("Value not in array");
     }

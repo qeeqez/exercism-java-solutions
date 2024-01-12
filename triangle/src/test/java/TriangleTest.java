@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TriangleTest {
 
@@ -8,21 +8,21 @@ public class TriangleTest {
     public void equilateralTrianglesHaveEqualSides() throws TriangleException {
         Triangle triangle = new Triangle(2, 2, 2);
 
-        Assertions.assertTrue(triangle.isEquilateral());
+        assertTrue(triangle.isEquilateral());
     }
 
     @Test
     public void trianglesWithOneUnequalSideAreNotEquilateral() throws TriangleException {
         Triangle triangle = new Triangle(2, 3, 2);
 
-        Assertions.assertFalse(triangle.isEquilateral());
+        assertFalse(triangle.isEquilateral());
     }
 
     @Test
     public void trianglesWithNoEqualSidesAreNotEquilateral() throws TriangleException {
         Triangle triangle = new Triangle(5, 4, 6);
 
-        Assertions.assertFalse(triangle.isEquilateral());
+        assertFalse(triangle.isEquilateral());
     }
 
     @Test
@@ -36,42 +36,42 @@ public class TriangleTest {
     public void verySmallTrianglesCanBeEquilateral() throws TriangleException {
         Triangle triangle = new Triangle(0.5, 0.5, 0.5);
 
-        Assertions.assertTrue(triangle.isEquilateral());
+        assertTrue(triangle.isEquilateral());
     }
 
     @Test
     public void isoscelesTrianglesHaveLastTwoSidesEqual() throws TriangleException {
         Triangle triangle = new Triangle(3, 4, 4);
 
-        Assertions.assertTrue(triangle.isIsosceles());
+        assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void isoscelesTrianglesHaveTwoFirstSidesEqual() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 3);
 
-        Assertions.assertTrue(triangle.isIsosceles());
+        assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void isoscelesTrianglesHaveFirstAndLastSidesEqual() throws TriangleException {
         Triangle triangle = new Triangle(4, 3, 4);
 
-        Assertions.assertTrue(triangle.isIsosceles());
+        assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void equilateralTrianglesAreAlsoIsosceles() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 4);
 
-        Assertions.assertTrue(triangle.isIsosceles());
+        assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void noSidesAreEqualCantBeIsoceles() throws TriangleException {
         Triangle triangle = new Triangle(2, 3, 4);
 
-        Assertions.assertFalse(triangle.isIsosceles());
+        assertFalse(triangle.isIsosceles());
     }
 
     @Test
@@ -99,28 +99,28 @@ public class TriangleTest {
     public void verySmallTrianglesCanBeIsosceles() throws TriangleException {
         Triangle triangle = new Triangle(0.5, 0.4, 0.5);
 
-        Assertions.assertTrue(triangle.isIsosceles());
+        assertTrue(triangle.isIsosceles());
     }
 
     @Test
     public void scaleneTrianglesHaveNoEqualSides() throws TriangleException {
         Triangle triangle = new Triangle(5, 4, 6);
 
-        Assertions.assertTrue(triangle.isScalene());
+        assertTrue(triangle.isScalene());
     }
 
     @Test
     public void allSidesEqualAreNotScalene() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 4);
 
-        Assertions.assertFalse(triangle.isScalene());
+        assertFalse(triangle.isScalene());
     }
 
     @Test
     public void twoSidesEqualAreNotScalene() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 3);
 
-        Assertions.assertFalse(triangle.isScalene());
+        assertFalse(triangle.isScalene());
     }
 
     @Test
@@ -134,6 +134,6 @@ public class TriangleTest {
     public void verySmallTrianglesCanBeScalene() throws TriangleException {
         Triangle triangle = new Triangle(0.5, 0.4, 0.6);
 
-        Assertions.assertTrue(triangle.isScalene());
+        assertTrue(triangle.isScalene());
     }
 }

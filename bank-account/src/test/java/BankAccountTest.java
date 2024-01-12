@@ -2,7 +2,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Fail.fail;
+
 
 public class BankAccountTest {
     private final BankAccount bankAccount = new BankAccount();
@@ -11,7 +14,7 @@ public class BankAccountTest {
     public void newlyOpenedAccountHasEmptyBalance() throws BankAccountActionInvalidException {
         bankAccount.open();
 
-        Assertions.assertThat(bankAccount.getBalance()).isEqualTo(0);
+        assertThat(bankAccount.getBalance()).isEqualTo(0);
     }
 
     @Test
@@ -20,7 +23,7 @@ public class BankAccountTest {
 
         bankAccount.deposit(10);
 
-        Assertions.assertThat(bankAccount.getBalance()).isEqualTo(10);
+        assertThat(bankAccount.getBalance()).isEqualTo(10);
     }
 
     @Test
@@ -30,7 +33,7 @@ public class BankAccountTest {
         bankAccount.deposit(5);
         bankAccount.deposit(23);
 
-        Assertions.assertThat(bankAccount.getBalance()).isEqualTo(28);
+        assertThat(bankAccount.getBalance()).isEqualTo(28);
     }
 
     @Test
@@ -40,7 +43,7 @@ public class BankAccountTest {
 
         bankAccount.withdraw(5);
 
-        Assertions.assertThat(bankAccount.getBalance()).isEqualTo(5);
+        assertThat(bankAccount.getBalance()).isEqualTo(5);
     }
 
     @Test
@@ -51,14 +54,14 @@ public class BankAccountTest {
         bankAccount.withdraw(10);
         bankAccount.withdraw(13);
 
-        Assertions.assertThat(bankAccount.getBalance()).isEqualTo(0);
+        assertThat(bankAccount.getBalance()).isEqualTo(0);
     }
 
     @Test
     public void cannotWithdrawMoneyFromEmptyAccount() {
         bankAccount.open();
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(() -> bankAccount.withdraw(5))
                 .withMessage("Cannot withdraw money from an empty account");
     }
@@ -68,7 +71,7 @@ public class BankAccountTest {
         bankAccount.open();
         bankAccount.deposit(6);
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(() -> bankAccount.withdraw(7))
                 .withMessage("Cannot withdraw more money than is currently in the account");
     }
@@ -77,7 +80,7 @@ public class BankAccountTest {
     public void cannotDepositNegativeAmount() {
         bankAccount.open();
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(() -> bankAccount.deposit(-1))
                 .withMessage("Cannot deposit or withdraw negative amount");
     }
@@ -87,7 +90,7 @@ public class BankAccountTest {
         bankAccount.open();
         bankAccount.deposit(105);
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(() -> bankAccount.withdraw(-5))
                 .withMessage("Cannot deposit or withdraw negative amount");
     }
@@ -98,7 +101,7 @@ public class BankAccountTest {
         bankAccount.deposit(10);
         bankAccount.close();
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(bankAccount::getBalance)
                 .withMessage("Account closed");
     }
@@ -108,7 +111,7 @@ public class BankAccountTest {
         bankAccount.open();
         bankAccount.close();
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(() -> bankAccount.deposit(5))
                 .withMessage("Account closed");
     }
@@ -119,14 +122,14 @@ public class BankAccountTest {
         bankAccount.deposit(20);
         bankAccount.close();
 
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(() -> bankAccount.withdraw(5))
                 .withMessage("Account closed");
     }
 
     @Test
     public void bankAccountIsClosedBeforeItIsOpened() {
-        Assertions.assertThatExceptionOfType(BankAccountActionInvalidException.class)
+        assertThatExceptionOfType(BankAccountActionInvalidException.class)
                 .isThrownBy(bankAccount::getBalance)
                 .withMessage("Account closed");
     }
@@ -138,7 +141,7 @@ public class BankAccountTest {
 
         for (int i = 0; i < 10; i++) {
             adjustBalanceConcurrently();
-            Assertions.assertThat(bankAccount.getBalance()).isEqualTo(1000);
+            assertThat(bankAccount.getBalance()).isEqualTo(1000);
         }
     }
 
@@ -149,7 +152,7 @@ public class BankAccountTest {
 
         for (int i = 0; i < 10; i++) {
             adjustBalanceConcurrently();
-            Assertions.assertThat(bankAccount.getBalance()).isEqualTo(1000);
+            assertThat(bankAccount.getBalance()).isEqualTo(1000);
         }
     }
 

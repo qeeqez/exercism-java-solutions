@@ -4,6 +4,8 @@ import java.util.*;
 
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MatrixTest {
 
     @Test
@@ -16,7 +18,7 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.singleton(new MatrixCoordinate(2, 1));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -25,7 +27,7 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.emptySet();
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -38,7 +40,7 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.emptySet();
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -55,7 +57,7 @@ public class MatrixTest {
                 new MatrixCoordinate(3, 2)
         ));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -72,7 +74,7 @@ public class MatrixTest {
                 new MatrixCoordinate(2, 3)
         ));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -85,7 +87,7 @@ public class MatrixTest {
 
         Set<MatrixCoordinate> expectedSaddlePoints = Collections.singleton(new MatrixCoordinate(3, 3));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -100,7 +102,7 @@ public class MatrixTest {
                 new MatrixCoordinate(1, 1)
         ));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -117,7 +119,7 @@ public class MatrixTest {
                 new MatrixCoordinate(4, 1)
         ));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
     @Test
@@ -131,7 +133,7 @@ public class MatrixTest {
                 new MatrixCoordinate(1, 4)
         ));
 
-        Assertions.assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
+        assertEquals(expectedSaddlePoints, matrix.getSaddlePoints());
     }
 
 }

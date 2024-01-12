@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Assertions;
 
 public class LargestSeriesProductCalculatorTest {
@@ -12,7 +14,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(2);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -22,7 +24,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(2);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -32,7 +34,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(2);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -42,7 +44,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(3);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -52,7 +54,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(3);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -62,7 +64,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(5);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -74,7 +76,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(6);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -84,7 +86,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(2);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -94,14 +96,14 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(3);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
     public void testSeriesLengthLongerThanLengthOfStringToTestIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("123");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> calculator.calculateLargestProductForSeriesLength(4))
                 .withMessage("Series length must be less than or equal to the length of the string to search.");
     }
@@ -113,7 +115,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(0);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
@@ -123,21 +125,21 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(0);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
     @Test
     public void testEmptyStringToSearchAndSeriesOfNonZeroLengthIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> calculator.calculateLargestProductForSeriesLength(1))
                 .withMessage("Series length must be less than or equal to the length of the string to search.");
     }
 
     @Test
     public void testStringToSearchContainingNonDigitCharacterIsRejected() {
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new LargestSeriesProductCalculator("1234a5"))
                 .withMessage("String to search may only contain digits.");
     }
@@ -146,7 +148,7 @@ public class LargestSeriesProductCalculatorTest {
     public void testNegativeSeriesLengthIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("12345");
 
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> calculator.calculateLargestProductForSeriesLength(-1))
                 .withMessage("Series length must be non-negative.");
     }
@@ -158,7 +160,7 @@ public class LargestSeriesProductCalculatorTest {
 
         long actualProduct = calculator.calculateLargestProductForSeriesLength(10);
 
-        Assertions.assertEquals(expectedProduct, actualProduct);
+        assertEquals(expectedProduct, actualProduct);
     }
 
 }

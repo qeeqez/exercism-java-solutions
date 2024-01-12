@@ -1,6 +1,8 @@
-import org.assertj.core.api.Assertions;
+
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NeedForSpeedTest {
     @Test
@@ -9,7 +11,7 @@ public class NeedForSpeedTest {
         int batteryDrain = 2;
         var car = new NeedForSpeed(speed, batteryDrain);
 
-        Assertions.assertThat(car.distanceDriven()).isEqualTo(0);
+        assertThat(car.distanceDriven()).isEqualTo(0);
     }
 
     @Test
@@ -20,7 +22,7 @@ public class NeedForSpeedTest {
 
         car.drive();
 
-        Assertions.assertThat(car.distanceDriven()).isEqualTo(5);
+        assertThat(car.distanceDriven()).isEqualTo(5);
     }
 
     @Test
@@ -36,7 +38,7 @@ public class NeedForSpeedTest {
         // One extra drive attempt (should not succeed)
         car.drive();
 
-        Assertions.assertThat(car.distanceDriven()).isEqualTo(18);
+        assertThat(car.distanceDriven()).isEqualTo(18);
     }
 
     @Test
@@ -45,7 +47,7 @@ public class NeedForSpeedTest {
         int batteryDrain = 3;
         var car = new NeedForSpeed(speed, batteryDrain);
 
-        Assertions.assertThat(car.batteryDrained()).isFalse();
+        assertThat(car.batteryDrained()).isFalse();
     }
 
     @Test
@@ -59,7 +61,7 @@ public class NeedForSpeedTest {
             car.drive();
         }
 
-        Assertions.assertThat(car.batteryDrained()).isFalse();
+        assertThat(car.batteryDrained()).isFalse();
     }
 
     @Test
@@ -73,26 +75,26 @@ public class NeedForSpeedTest {
             car.drive();
         }
 
-        Assertions.assertThat(car.batteryDrained()).isTrue();
+        assertThat(car.batteryDrained()).isTrue();
     }
 
     @Test
     public void nitro_car_has_not_driven_any_distance() {
         var car = NeedForSpeed.nitro();
-        Assertions.assertThat(car.distanceDriven()).isEqualTo(0);
+        assertThat(car.distanceDriven()).isEqualTo(0);
     }
 
     @Test
     public void nitro_car_has_battery_not_drained() {
         var car = NeedForSpeed.nitro();
-        Assertions.assertThat(car.batteryDrained()).isFalse();
+        assertThat(car.batteryDrained()).isFalse();
     }
 
     @Test
     public void nitro_car_has_correct_speed() {
         var car = NeedForSpeed.nitro();
         car.drive();
-        Assertions.assertThat(car.distanceDriven()).isEqualTo(50);
+        assertThat(car.distanceDriven()).isEqualTo(50);
     }
 
     @Test
@@ -104,12 +106,12 @@ public class NeedForSpeedTest {
             car.drive();
         }
 
-        Assertions.assertThat(car.batteryDrained()).isFalse();
+        assertThat(car.batteryDrained()).isFalse();
 
         // Drain the battery
         car.drive();
 
-        Assertions.assertThat(car.batteryDrained()).isTrue();
+        assertThat(car.batteryDrained()).isTrue();
     }
 
     @Test
@@ -121,7 +123,7 @@ public class NeedForSpeedTest {
         int distance = 100;
         var race = new RaceTrack(distance);
 
-        Assertions.assertThat(race.tryFinishTrack(car)).isTrue();
+        assertThat(race.tryFinishTrack(car)).isTrue();
     }
 
     @Test
@@ -133,7 +135,7 @@ public class NeedForSpeedTest {
         int distance = 20;
         var race = new RaceTrack(distance);
 
-        Assertions.assertThat(race.tryFinishTrack(car)).isTrue();
+        assertThat(race.tryFinishTrack(car)).isTrue();
     }
 
     @Test
@@ -145,7 +147,7 @@ public class NeedForSpeedTest {
         int distance = 16;
         var race = new RaceTrack(distance);
 
-        Assertions.assertThat(race.tryFinishTrack(car)).isFalse();
+        assertThat(race.tryFinishTrack(car)).isFalse();
     }
 
     @Test
@@ -157,7 +159,7 @@ public class NeedForSpeedTest {
         int distance = 678;
         var race = new RaceTrack(distance);
 
-        Assertions.assertThat(race.tryFinishTrack(car)).isFalse();
+        assertThat(race.tryFinishTrack(car)).isFalse();
     }
 }
 
