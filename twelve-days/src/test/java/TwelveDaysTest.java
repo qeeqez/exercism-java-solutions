@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 
 public class TwelveDaysTest {
     private TwelveDays twelveDays;
@@ -15,35 +15,35 @@ public class TwelveDaysTest {
     public void testVerseOne() {
         String expectedVerseOne = "On the first day of Christmas my true love gave to me: " +
                 "a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseOne, twelveDays.verse(1));
+        Assertions.assertEquals(expectedVerseOne, twelveDays.verse(1));
     }
 
     @Test
     public void testVerseTwo() {
         String expectedVerseTwo = "On the second day of Christmas my true love gave to me: two Turtle Doves, " +
                 "and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseTwo, twelveDays.verse(2));
+        Assertions.assertEquals(expectedVerseTwo, twelveDays.verse(2));
     }
 
     @Test
     public void testVerseThree() {
         String expectedVerseThree = "On the third day of Christmas my true love gave to me: three French Hens, " +
                 "two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseThree, twelveDays.verse(3));
+        Assertions.assertEquals(expectedVerseThree, twelveDays.verse(3));
     }
 
     @Test
     public void testVerseFour() {
         String expectedVerseFour = "On the fourth day of Christmas my true love gave to me: four Calling Birds, " +
                 "three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseFour, twelveDays.verse(4));
+        Assertions.assertEquals(expectedVerseFour, twelveDays.verse(4));
     }
 
     @Test
     public void testVerseFive() {
         String expectedVerseFive = "On the fifth day of Christmas my true love gave to me: five Gold Rings, " +
                 "four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseFive, twelveDays.verse(5));
+        Assertions.assertEquals(expectedVerseFive, twelveDays.verse(5));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class TwelveDaysTest {
         String expectedVerseSix = "On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, " +
                 "five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, " +
                 "and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseSix, twelveDays.verse(6));
+        Assertions.assertEquals(expectedVerseSix, twelveDays.verse(6));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class TwelveDaysTest {
         String expectedVerseSeven = "On the seventh day of Christmas my true love gave to me: " +
                 "seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, " +
                 "two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseSeven, twelveDays.verse(7));
+        Assertions.assertEquals(expectedVerseSeven, twelveDays.verse(7));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class TwelveDaysTest {
         String expectedVerseEight = "On the eighth day of Christmas my true love gave to me: eight Maids-a-Milking," +
                 " seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, " +
                 "three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseEight, twelveDays.verse(8));
+        Assertions.assertEquals(expectedVerseEight, twelveDays.verse(8));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class TwelveDaysTest {
         String expectedVerseNine = "On the ninth day of Christmas my true love gave to me: nine Ladies Dancing, " +
                 "eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, " +
                 "four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseNine, twelveDays.verse(9));
+        Assertions.assertEquals(expectedVerseNine, twelveDays.verse(9));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class TwelveDaysTest {
                 "nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, " +
                 "five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, " +
                 "and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseTen, twelveDays.verse(10));
+        Assertions.assertEquals(expectedVerseTen, twelveDays.verse(10));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class TwelveDaysTest {
                 "eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, " +
                 "seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, " +
                 "three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseEleven, twelveDays.verse(11));
+        Assertions.assertEquals(expectedVerseEleven, twelveDays.verse(11));
     }
 
     @Test
@@ -102,7 +102,7 @@ public class TwelveDaysTest {
                 "twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, " +
                 "eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, " +
                 "four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.\n";
-        assertEquals(expectedVerseTwelve, twelveDays.verse(12));
+        Assertions.assertEquals(expectedVerseTwelve, twelveDays.verse(12));
     }
 
     @Test
@@ -114,7 +114,7 @@ public class TwelveDaysTest {
 
                 On the third day of Christmas my true love gave to me: three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
                 """;
-        assertEquals(expectedVersesOneToThree, twelveDays.verses(1, 3));
+        Assertions.assertEquals(expectedVersesOneToThree, twelveDays.verses(1, 3));
     }
 
     @Test
@@ -126,7 +126,7 @@ public class TwelveDaysTest {
 
                 On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
                 """;
-        assertEquals(expectedVersesFourToSix, twelveDays.verses(4, 6));
+        Assertions.assertEquals(expectedVersesFourToSix, twelveDays.verses(4, 6));
     }
 
     @Test
@@ -156,6 +156,6 @@ public class TwelveDaysTest {
 
                 On the twelfth day of Christmas my true love gave to me: twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
                 """;
-        assertEquals(expectedSong, twelveDays.sing());
+        Assertions.assertEquals(expectedSong, twelveDays.sing());
     }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 
 public class FlattenerTest {
 
@@ -17,19 +17,19 @@ public class FlattenerTest {
 
     @Test
     public void testFlatListIsPreserved() {
-        assertEquals(asList(0, '1', "two"), flattener.flatten(asList(0, '1', "two")));
+        Assertions.assertEquals(asList(0, '1', "two"), flattener.flatten(asList(0, '1', "two")));
     }
 
     @Test
     public void testASingleLevelOfNestingWithNoNulls() {
-        assertEquals(
+        Assertions.assertEquals(
                 asList(1, '2', 3, 4, 5, "six", "7", 8),
                 flattener.flatten(asList(1, asList('2', 3, 4, 5, "six", "7"), 8)));
     }
 
     @Test
     public void testFiveLevelsOfNestingWithNoNulls() {
-        assertEquals(
+        Assertions.assertEquals(
                 asList(0, '2', 2, "three", '8', 100, "four", 50, "-2"),
                 flattener.flatten(asList(0,
                         '2',
@@ -42,7 +42,7 @@ public class FlattenerTest {
 
     @Test
     public void testSixLevelsOfNestingWithNoNulls() {
-        assertEquals(
+        Assertions.assertEquals(
                 asList("one", '2', 3, '4', 5, "six", 7, "8"),
                 flattener.flatten(asList("one",
                         asList('2',
@@ -53,7 +53,7 @@ public class FlattenerTest {
 
     @Test
     public void testSixLevelsOfNestingWithNulls() {
-        assertEquals(
+        Assertions.assertEquals(
                 asList("0", 2, "two", '3', "8", "one hundred", "negative two"),
                 flattener.flatten(asList("0",
                         2,
@@ -67,7 +67,7 @@ public class FlattenerTest {
 
     @Test
     public void testNestedListsFullOfNullsOnly() {
-        assertEquals(emptyList(),
+        Assertions.assertEquals(emptyList(),
                 flattener.flatten(asList(null,
                         singletonList(singletonList(singletonList(null))),
                         null,

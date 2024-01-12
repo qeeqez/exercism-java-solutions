@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 
 public class SeriesTest {
 
@@ -14,7 +14,7 @@ public class SeriesTest {
         Series series = new Series("1");
         List<String> expected = Collections.singletonList("1");
         List<String> actual = series.slices(1);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class SeriesTest {
         Series series = new Series("12");
         List<String> expected = Arrays.asList("1", "2");
         List<String> actual = series.slices(1);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class SeriesTest {
         Series series = new Series("35");
         List<String> expected = Collections.singletonList("35");
         List<String> actual = series.slices(2);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class SeriesTest {
         Series series = new Series("9142");
         List<String> expected = Arrays.asList("91", "14", "42");
         List<String> actual = series.slices(2);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class SeriesTest {
                 "777"
         );
         List<String> actual = series.slices(3);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class SeriesTest {
                 "04243"
         );
         List<String> actual = series.slices(5);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test

@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 import static org.junit.Assert.assertThrows;
 
 public class PhoneNumberTest {
@@ -11,7 +11,7 @@ public class PhoneNumberTest {
         String expectedNumber = "2234567890";
         String actualNumber = new PhoneNumber("(223) 456-7890").getNumber();
 
-        assertEquals(
+        Assertions.assertEquals(
                 expectedNumber, actualNumber
         );
     }
@@ -21,7 +21,7 @@ public class PhoneNumberTest {
         String expectedNumber = "2234567890";
         String actualNumber = new PhoneNumber("223.456.7890").getNumber();
 
-        assertEquals(
+        Assertions.assertEquals(
                 expectedNumber, actualNumber
         );
     }
@@ -31,7 +31,7 @@ public class PhoneNumberTest {
         String expectedNumber = "2234567890";
         String actualNumber = new PhoneNumber("223 456   7890   ").getNumber();
 
-        assertEquals(
+        Assertions.assertEquals(
                 expectedNumber, actualNumber
         );
     }
@@ -63,7 +63,7 @@ public class PhoneNumberTest {
         String expectedNumber = "2234567890";
         String actualNumber = new PhoneNumber("12234567890").getNumber();
 
-        assertEquals(
+        Assertions.assertEquals(
                 expectedNumber, actualNumber
         );
     }
@@ -73,7 +73,7 @@ public class PhoneNumberTest {
         String expectedNumber = "2234567890";
         String actualNumber = new PhoneNumber("+1 (223) 456-7890").getNumber();
 
-        assertEquals(
+        Assertions.assertEquals(
                 expectedNumber, actualNumber
         );
     }

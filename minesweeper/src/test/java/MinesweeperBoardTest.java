@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 
 public class MinesweeperBoardTest {
 
@@ -14,7 +14,7 @@ public class MinesweeperBoardTest {
         List<String> expectedNumberedBoard = Collections.emptyList();
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class MinesweeperBoardTest {
         List<String> expectedNumberedBoard = Collections.singletonList("");
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -99,7 +99,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -129,7 +129,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -152,7 +152,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -175,7 +175,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -198,7 +198,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
     @Test
@@ -223,7 +223,7 @@ public class MinesweeperBoardTest {
 
         List<String> actualNumberedBoard = new MinesweeperBoard(inputBoard).withNumbers();
 
-        assertEquals(expectedNumberedBoard, actualNumberedBoard);
+        Assertions.assertEquals(expectedNumberedBoard, actualNumberedBoard);
     }
 
 }

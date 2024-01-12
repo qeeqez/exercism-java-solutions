@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 import static org.junit.Assert.assertTrue;
 
 public class DnDCharacterTest {
@@ -9,82 +9,82 @@ public class DnDCharacterTest {
 
     @Test
     public void testAbilityModifierForScore3IsNegative4() {
-        assertEquals(-4, dndCharacter.modifier(3));
+        Assertions.assertEquals(-4, dndCharacter.modifier(3));
     }
 
     @Test
     public void testAbilityModifierForScore4IsNegative3() {
-        assertEquals(-3, dndCharacter.modifier(4));
+        Assertions.assertEquals(-3, dndCharacter.modifier(4));
     }
 
     @Test
     public void testAbilityModifierForScore5IsNegative3() {
-        assertEquals(-3, dndCharacter.modifier(5));
+        Assertions.assertEquals(-3, dndCharacter.modifier(5));
     }
 
     @Test
     public void testAbilityModifierForScore6IsNegative2() {
-        assertEquals(-2, dndCharacter.modifier(6));
+        Assertions.assertEquals(-2, dndCharacter.modifier(6));
     }
 
     @Test
     public void testAbilityModifierForScore7IsNegative2() {
-        assertEquals(-2, dndCharacter.modifier(7));
+        Assertions.assertEquals(-2, dndCharacter.modifier(7));
     }
 
     @Test
     public void testAbilityModifierForScore8IsNegative1() {
-        assertEquals(-1, dndCharacter.modifier(8));
+        Assertions.assertEquals(-1, dndCharacter.modifier(8));
     }
 
     @Test
     public void testAbilityModifierForScore9IsNegative1() {
-        assertEquals(-1, dndCharacter.modifier(9));
+        Assertions.assertEquals(-1, dndCharacter.modifier(9));
     }
 
     @Test
     public void testAbilityModifierForScore10Is0() {
-        assertEquals(0, dndCharacter.modifier(10));
+        Assertions.assertEquals(0, dndCharacter.modifier(10));
     }
 
     @Test
     public void testAbilityModifierForScore11Is0() {
-        assertEquals(0, dndCharacter.modifier(11));
+        Assertions.assertEquals(0, dndCharacter.modifier(11));
     }
 
     @Test
     public void testAbilityModifierForScore12Is1() {
-        assertEquals(1, dndCharacter.modifier(12));
+        Assertions.assertEquals(1, dndCharacter.modifier(12));
     }
 
     @Test
     public void testAbilityModifierForScore13Is1() {
-        assertEquals(1, dndCharacter.modifier(13));
+        Assertions.assertEquals(1, dndCharacter.modifier(13));
     }
 
     @Test
     public void testAbilityModifierForScore14Is2() {
-        assertEquals(2, dndCharacter.modifier(14));
+        Assertions.assertEquals(2, dndCharacter.modifier(14));
     }
 
     @Test
     public void testAbilityModifierForScore15Is2() {
-        assertEquals(2, dndCharacter.modifier(15));
+        Assertions.assertEquals(2, dndCharacter.modifier(15));
     }
 
     @Test
     public void testAbilityModifierForScore16Is3() {
-        assertEquals(3, dndCharacter.modifier(16));
+        Assertions.assertEquals(3, dndCharacter.modifier(16));
     }
 
     @Test
     public void testAbilityModifierForScore17Is3() {
-        assertEquals(3, dndCharacter.modifier(17));
+        Assertions.assertEquals(3, dndCharacter.modifier(17));
     }
 
     @Test
     public void testAbilityModifierForScore18Is4() {
-        assertEquals(4, dndCharacter.modifier(18));
+        Assertions.assertEquals(4, dndCharacter.modifier(18));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class DnDCharacterTest {
             assertTrue(character.getIntelligence() > 2 && character.getIntelligence() < 19);
             assertTrue(character.getWisdom() > 2 && character.getWisdom() < 19);
             assertTrue(character.getCharisma() > 2 && character.getCharisma() < 19);
-            assertEquals(character.getHitpoints(),
+            Assertions.assertEquals(character.getHitpoints(),
                     10 + character.modifier(character.getConstitution()));
         }
     }
@@ -112,7 +112,7 @@ public class DnDCharacterTest {
     public void testEachAbilityIsOnlyCalculatedOnce() {
         int first = dndCharacter.getStrength();
         int second = dndCharacter.getStrength();
-        assertEquals(first, second);
+        Assertions.assertEquals(first, second);
     }
 
 }
