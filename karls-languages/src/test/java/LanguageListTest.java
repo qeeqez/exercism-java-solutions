@@ -1,4 +1,4 @@
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,22 +8,22 @@ public class LanguageListTest {
 
     @Test
     public void empty() {
-        assertThat(languageList.isEmpty()).isTrue();
+        Assertions.assertThat(languageList.isEmpty()).isTrue();
     }
 
     @Test
     public void nonEmpty() {
         languageList.addLanguage("Java");
 
-        assertThat(languageList.isEmpty()).isFalse();
+        Assertions.assertThat(languageList.isEmpty()).isFalse();
     }
 
     @Test
     public void addOneLanguage() {
         languageList.addLanguage("Java");
 
-        assertThat(languageList.containsLanguage("Java")).isTrue();
-        assertThat(languageList.containsLanguage("Python")).isFalse();
+        Assertions.assertThat(languageList.containsLanguage("Java")).isTrue();
+        Assertions.assertThat(languageList.containsLanguage("Python")).isFalse();
     }
 
     @Test
@@ -32,10 +32,10 @@ public class LanguageListTest {
         languageList.addLanguage("Ruby");
         languageList.addLanguage("C++");
 
-        assertThat(languageList.containsLanguage("Java")).isTrue();
-        assertThat(languageList.containsLanguage("Ruby")).isTrue();
-        assertThat(languageList.containsLanguage("C++")).isTrue();
-        assertThat(languageList.containsLanguage("Python")).isFalse();
+        Assertions.assertThat(languageList.containsLanguage("Java")).isTrue();
+        Assertions.assertThat(languageList.containsLanguage("Ruby")).isTrue();
+        Assertions.assertThat(languageList.containsLanguage("C++")).isTrue();
+        Assertions.assertThat(languageList.containsLanguage("Python")).isFalse();
     }
 
     @Test
@@ -46,9 +46,9 @@ public class LanguageListTest {
 
         languageList.removeLanguage("Python");
 
-        assertThat(languageList.containsLanguage("Java")).isTrue();
-        assertThat(languageList.containsLanguage("Python")).isFalse();
-        assertThat(languageList.containsLanguage("Ruby")).isTrue();
+        Assertions.assertThat(languageList.containsLanguage("Java")).isTrue();
+        Assertions.assertThat(languageList.containsLanguage("Python")).isFalse();
+        Assertions.assertThat(languageList.containsLanguage("Ruby")).isTrue();
     }
 
     @Test
@@ -57,7 +57,7 @@ public class LanguageListTest {
         languageList.addLanguage("Python");
         languageList.addLanguage("Ruby");
 
-        assertThat(languageList.firstLanguage()).isEqualTo("Java");
+        Assertions.assertThat(languageList.firstLanguage()).isEqualTo("Java");
     }
 
     @Test
@@ -66,19 +66,19 @@ public class LanguageListTest {
         languageList.addLanguage("Python");
         languageList.addLanguage("Ruby");
 
-        assertThat(languageList.count()).isEqualTo(3);
+        Assertions.assertThat(languageList.count()).isEqualTo(3);
     }
 
     @Test
     public void countEmpty() {
-        assertThat(languageList.count()).isEqualTo(0);
+        Assertions.assertThat(languageList.count()).isEqualTo(0);
     }
 
     @Test
     public void excitingLanguageListWithJava() {
         languageList.addLanguage("Java");
 
-        assertThat(languageList.isExciting()).isTrue();
+        Assertions.assertThat(languageList.isExciting()).isTrue();
     }
 
     @Test
@@ -86,7 +86,7 @@ public class LanguageListTest {
         languageList.addLanguage("Python");
         languageList.addLanguage("Kotlin");
 
-        assertThat(languageList.isExciting()).isTrue();
+        Assertions.assertThat(languageList.isExciting()).isTrue();
     }
 
     @Test
@@ -95,6 +95,6 @@ public class LanguageListTest {
         languageList.addLanguage("Ruby");
         languageList.addLanguage("C++");
 
-        assertThat(languageList.isExciting()).isFalse();
+        Assertions.assertThat(languageList.isExciting()).isFalse();
     }
 }

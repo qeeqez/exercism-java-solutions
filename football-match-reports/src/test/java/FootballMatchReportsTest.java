@@ -1,61 +1,61 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import org.assertj.core.api.Assertions;
 
 public class FootballMatchReportsTest {
 
     @Test
     public void test_goal() {
-        assertThat(FootballMatchReports.onField(1)).isEqualTo("goalie");
+        Assertions.assertThat(FootballMatchReports.onField(1)).isEqualTo("goalie");
     }
 
     @Test
     public void test_left_back() {
-        assertThat(FootballMatchReports.onField(2)).isEqualTo("left back");
+        Assertions.assertThat(FootballMatchReports.onField(2)).isEqualTo("left back");
     }
 
     @Test
     public void test_right_back() {
-        assertThat(FootballMatchReports.onField(5)).isEqualTo("right back");
+        Assertions.assertThat(FootballMatchReports.onField(5)).isEqualTo("right back");
     }
 
     @Test
     public void test_center_back() {
-        assertThat(FootballMatchReports.onField(3)).isEqualTo("center back");
-        assertThat(FootballMatchReports.onField(4)).isEqualTo("center back");
+        Assertions.assertThat(FootballMatchReports.onField(3)).isEqualTo("center back");
+        Assertions.assertThat(FootballMatchReports.onField(4)).isEqualTo("center back");
     }
 
     @Test
     public void test_midfielder() {
-        assertThat(FootballMatchReports.onField(6)).isEqualTo("midfielder");
-        assertThat(FootballMatchReports.onField(7)).isEqualTo("midfielder");
-        assertThat(FootballMatchReports.onField(8)).isEqualTo("midfielder");
+        Assertions.assertThat(FootballMatchReports.onField(6)).isEqualTo("midfielder");
+        Assertions.assertThat(FootballMatchReports.onField(7)).isEqualTo("midfielder");
+        Assertions.assertThat(FootballMatchReports.onField(8)).isEqualTo("midfielder");
     }
 
     @Test
     public void test_left_wing() {
-        assertThat(FootballMatchReports.onField(9)).isEqualTo("left wing");
+        Assertions.assertThat(FootballMatchReports.onField(9)).isEqualTo("left wing");
     }
 
     @Test
     public void test_striker() {
-        assertThat(FootballMatchReports.onField(10)).isEqualTo("striker");
+        Assertions.assertThat(FootballMatchReports.onField(10)).isEqualTo("striker");
     }
 
     @Test
     public void test_right_wing() {
-        assertThat(FootballMatchReports.onField(11)).isEqualTo("right wing");
+        Assertions.assertThat(FootballMatchReports.onField(11)).isEqualTo("right wing");
     }
 
     @Test
     public void test_exception() {
-        assertThatThrownBy(() -> FootballMatchReports.onField(13))
+        Assertions.assertThatThrownBy(() -> FootballMatchReports.onField(13))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void test_exception_negative_number() {
-        assertThatThrownBy(() -> FootballMatchReports.onField(-1))
+        Assertions.assertThatThrownBy(() -> FootballMatchReports.onField(-1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

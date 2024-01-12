@@ -1,7 +1,6 @@
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class ArmstrongNumbersTest {
 
@@ -14,55 +13,55 @@ public class ArmstrongNumbersTest {
 
     @Test
     public void zeroIsArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(0))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(0))
                 .isTrue();
     }
 
     @Test
     public void singleDigitsAreArmstrongNumbers() {
-        assertThat(armstrongNumbers.isArmstrongNumber(5))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(5))
                 .isTrue();
     }
 
     @Test
     public void noTwoDigitArmstrongNumbers() {
-        assertThat(armstrongNumbers.isArmstrongNumber(10))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(10))
                 .isFalse();
     }
 
     @Test
     public void threeDigitNumberIsArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(153))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(153))
                 .isTrue();
     }
 
     @Test
     public void threeDigitNumberIsNotArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(100))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(100))
                 .isFalse();
     }
 
     @Test
     public void fourDigitNumberIsArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9474))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(9474))
                 .isTrue();
     }
 
     @Test
     public void fourDigitNumberIsNotArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9475))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(9475))
                 .isFalse();
     }
 
     @Test
     public void sevenDigitNumberIsArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9926315))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(9926315))
                 .isTrue();
     }
 
     @Test
     public void sevenDigitNumberIsNotArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9926314))
+        Assertions.assertThat(armstrongNumbers.isArmstrongNumber(9926314))
                 .isFalse();
     }
 

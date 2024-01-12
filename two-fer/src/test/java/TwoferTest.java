@@ -2,7 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 public class TwoferTest {
 
@@ -15,19 +15,19 @@ public class TwoferTest {
 
     @Test
     public void noNameGiven() {
-        assertThat(twofer.twofer(null))
+        Assertions.assertThat(twofer.twofer(null))
                 .isEqualTo("One for you, one for me.");
     }
 
     @Test
     public void aNameGiven() {
-        assertThat(twofer.twofer("Alice"))
+        Assertions.assertThat(twofer.twofer("Alice"))
                 .isEqualTo("One for Alice, one for me.");
     }
 
     @Test
     public void anotherNameGiven() {
-        assertThat(twofer.twofer("Bob"))
+        Assertions.assertThat(twofer.twofer("Bob"))
                 .isEqualTo("One for Bob, one for me.");
     }
 

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.Assertions.assertThatExceptionOfType;
 import org.junit.jupiter.api.Assertions;
 
 public class SeriesTest {
@@ -75,7 +75,7 @@ public class SeriesTest {
     public void sliceLengthIsToolarge() {
         Series series = new Series("12345");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(6))
                 .withMessage("Slice size is too big.");
     }
@@ -84,7 +84,7 @@ public class SeriesTest {
     public void sliceLengthZero() {
         Series series = new Series("12345");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(0))
                 .withMessage("Slice size is too small.");
     }
@@ -93,7 +93,7 @@ public class SeriesTest {
     public void sliceLengthNegative() {
         Series series = new Series("123");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(-1))
                 .withMessage("Slice size is too small.");
     }
@@ -102,7 +102,7 @@ public class SeriesTest {
     public void emptySeries() {
         Series series = new Series("");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> series.slices(1))
                 .withMessage("Slice size is too big.");
     }

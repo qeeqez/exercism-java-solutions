@@ -1,38 +1,38 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import org.assertj.core.api.Assertions;
 
 public class ElonsToyCarTest {
     @Test
     public void buy_new_car_returns_instance() {
         ElonsToyCar car = ElonsToyCar.buy();
-        assertThat(car).isNotNull();
+        Assertions.assertThat(car).isNotNull();
     }
 
     @Test
     public void buy_new_car_returns_new_car_each_time() {
         ElonsToyCar car1 = ElonsToyCar.buy();
         ElonsToyCar car2 = ElonsToyCar.buy();
-        assertThat(car1).isNotEqualTo(car2);
+        Assertions.assertThat(car1).isNotEqualTo(car2);
     }
 
     @Test
     public void new_car_distance_display() {
         ElonsToyCar car = new ElonsToyCar();
-        assertThat(car.distanceDisplay()).isEqualTo("Driven 0 meters");
+        Assertions.assertThat(car.distanceDisplay()).isEqualTo("Driven 0 meters");
     }
 
     @Test
     public void new_car_battery_display() {
         ElonsToyCar car = new ElonsToyCar();
-        assertThat(car.batteryDisplay()).isEqualTo("Battery at 100%");
+        Assertions.assertThat(car.batteryDisplay()).isEqualTo("Battery at 100%");
     }
 
     @Test
     public void distance_display_after_driving_once() {
         ElonsToyCar car = new ElonsToyCar();
         car.drive();
-        assertThat(car.distanceDisplay()).isEqualTo("Driven 20 meters");
+        Assertions.assertThat(car.distanceDisplay()).isEqualTo("Driven 20 meters");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ElonsToyCarTest {
             car.drive();
         }
 
-        assertThat(car.distanceDisplay()).isEqualTo("Driven 340 meters");
+        Assertions.assertThat(car.distanceDisplay()).isEqualTo("Driven 340 meters");
     }
 
     @Test
@@ -51,7 +51,7 @@ public class ElonsToyCarTest {
         ElonsToyCar car = new ElonsToyCar();
         car.drive();
         
-        assertThat(car.batteryDisplay()).isEqualTo("Battery at 99%");
+        Assertions.assertThat(car.batteryDisplay()).isEqualTo("Battery at 99%");
     }
 
     @Test
@@ -62,7 +62,7 @@ public class ElonsToyCarTest {
             car.drive();
         }
 
-        assertThat(car.batteryDisplay()).isEqualTo("Battery at 77%");
+        Assertions.assertThat(car.batteryDisplay()).isEqualTo("Battery at 77%");
     }
 
     @Test
@@ -77,7 +77,7 @@ public class ElonsToyCarTest {
         // Attempt to drive one more time (should not work)
         car.drive();
 
-        assertThat(car.batteryDisplay()).isEqualTo("Battery empty");
+        Assertions.assertThat(car.batteryDisplay()).isEqualTo("Battery empty");
     }
 
     @Test
@@ -92,6 +92,6 @@ public class ElonsToyCarTest {
         // Attempt to drive one more time (should not work)
         car.drive();
 
-        assertThat(car.distanceDisplay()).isEqualTo("Driven 2000 meters");
+        Assertions.assertThat(car.distanceDisplay()).isEqualTo("Driven 2000 meters");
     }
 }

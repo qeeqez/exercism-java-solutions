@@ -1,17 +1,17 @@
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class AnnalynsInfiltrationTest {
     @Test
     public void cannot_execute_fast_attack_if_knight_is_awake() {
         boolean knightIsAwake = true;
-        assertThat(AnnalynsInfiltration.canFastAttack(knightIsAwake)).isFalse();
+        Assertions.assertThat(AnnalynsInfiltration.canFastAttack(knightIsAwake)).isFalse();
     }
 
     @Test
     public void can_execute_fast_attack_if_knight_is_sleeping() {
         boolean knightIsAwake = false;
-        assertThat(AnnalynsInfiltration.canFastAttack(knightIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canFastAttack(knightIsAwake)).isTrue();
     }
 
     @Test
@@ -19,7 +19,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = false;
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isFalse();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isFalse();
     }
 
     @Test
@@ -27,7 +27,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = true;
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
@@ -35,7 +35,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = false;
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
@@ -43,7 +43,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = false;
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
@@ -51,7 +51,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = false;
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
@@ -59,7 +59,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = true;
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
@@ -67,7 +67,7 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = true;
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
@@ -75,35 +75,35 @@ public class AnnalynsInfiltrationTest {
         boolean knightIsAwake = true;
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
-        assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
     public void can_signal_prisoner_if_archer_is_sleeping_and_prisoner_is_awake() {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
-        assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isTrue();
+        Assertions.assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isTrue();
     }
 
     @Test
     public void cannot_signal_prisoner_if_archer_is_awake_and_prisoner_is_sleeping() {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
-        assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isFalse();
+        Assertions.assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isFalse();
     }
 
     @Test
     public void cannot_signal_prisoner_if_archer_and_prisoner_are_both_sleeping() {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
-        assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isFalse();
+        Assertions.assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isFalse();
     }
 
     @Test
     public void cannot_signal_prisoner_if_archer_and_prisoner_are_both_awake() {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
-        assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isFalse();
+        Assertions.assertThat(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake)).isFalse();
     }
 
     @Test
@@ -112,7 +112,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -122,7 +122,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -132,7 +132,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isTrue();
     }
 
@@ -142,7 +142,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -152,7 +152,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isTrue();
     }
 
@@ -162,7 +162,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isTrue();
     }
 
@@ -172,7 +172,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -182,7 +182,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -192,7 +192,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isTrue();
     }
 
@@ -202,7 +202,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -212,7 +212,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -222,7 +222,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -232,7 +232,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isTrue();
     }
 
@@ -242,7 +242,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = false;
         boolean prisonerIsAwake = true;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -252,7 +252,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = true;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 
@@ -262,7 +262,7 @@ public class AnnalynsInfiltrationTest {
         boolean archerIsAwake = true;
         boolean prisonerIsAwake = false;
         boolean petDogIsPresent = false;
-        assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
+        Assertions.assertThat(AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake,
                    prisonerIsAwake, petDogIsPresent)).isFalse();
     }
 }

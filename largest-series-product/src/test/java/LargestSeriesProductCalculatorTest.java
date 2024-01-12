@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.Assertions.assertThatExceptionOfType;
 import org.junit.jupiter.api.Assertions;
 
 public class LargestSeriesProductCalculatorTest {
@@ -101,7 +101,7 @@ public class LargestSeriesProductCalculatorTest {
     public void testSeriesLengthLongerThanLengthOfStringToTestIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("123");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> calculator.calculateLargestProductForSeriesLength(4))
                 .withMessage("Series length must be less than or equal to the length of the string to search.");
     }
@@ -130,14 +130,14 @@ public class LargestSeriesProductCalculatorTest {
     public void testEmptyStringToSearchAndSeriesOfNonZeroLengthIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> calculator.calculateLargestProductForSeriesLength(1))
                 .withMessage("Series length must be less than or equal to the length of the string to search.");
     }
 
     @Test
     public void testStringToSearchContainingNonDigitCharacterIsRejected() {
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new LargestSeriesProductCalculator("1234a5"))
                 .withMessage("String to search may only contain digits.");
     }
@@ -146,7 +146,7 @@ public class LargestSeriesProductCalculatorTest {
     public void testNegativeSeriesLengthIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("12345");
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> calculator.calculateLargestProductForSeriesLength(-1))
                 .withMessage("Series length must be non-negative.");
     }

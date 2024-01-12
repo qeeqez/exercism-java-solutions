@@ -1,7 +1,5 @@
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class BowlingGameTest {
     private final BowlingGame game = new BowlingGame();
@@ -17,7 +15,7 @@ public class BowlingGameTest {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isZero();
+        Assertions.assertThat(game.score()).isZero();
     }
 
     @Test
@@ -25,7 +23,7 @@ public class BowlingGameTest {
         int[] rolls = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(90);
+        Assertions.assertThat(game.score()).isEqualTo(90);
     }
 
     @Test
@@ -33,7 +31,7 @@ public class BowlingGameTest {
         int[] rolls = {6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(10);
+        Assertions.assertThat(game.score()).isEqualTo(10);
     }
 
     @Test
@@ -41,7 +39,7 @@ public class BowlingGameTest {
         int[] rolls = {6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(16);
+        Assertions.assertThat(game.score()).isEqualTo(16);
     }
 
     @Test
@@ -49,7 +47,7 @@ public class BowlingGameTest {
         int[] rolls = {5, 5, 3, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(31);
+        Assertions.assertThat(game.score()).isEqualTo(31);
     }
 
     @Test
@@ -57,7 +55,7 @@ public class BowlingGameTest {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 7};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(17);
+        Assertions.assertThat(game.score()).isEqualTo(17);
     }
 
     @Test
@@ -65,7 +63,7 @@ public class BowlingGameTest {
         int[] rolls = {10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(10);
+        Assertions.assertThat(game.score()).isEqualTo(10);
     }
 
     @Test
@@ -73,7 +71,7 @@ public class BowlingGameTest {
         int[] rolls = {10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(26);
+        Assertions.assertThat(game.score()).isEqualTo(26);
     }
 
     @Test
@@ -81,7 +79,7 @@ public class BowlingGameTest {
         int[] rolls = {10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(81);
+        Assertions.assertThat(game.score()).isEqualTo(81);
     }
 
     @Test
@@ -89,7 +87,7 @@ public class BowlingGameTest {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 1};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(18);
+        Assertions.assertThat(game.score()).isEqualTo(18);
     }
 
     @Test
@@ -97,7 +95,7 @@ public class BowlingGameTest {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 3};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(20);
+        Assertions.assertThat(game.score()).isEqualTo(20);
     }
 
     @Test
@@ -105,7 +103,7 @@ public class BowlingGameTest {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(30);
+        Assertions.assertThat(game.score()).isEqualTo(30);
     }
 
     @Test
@@ -113,7 +111,7 @@ public class BowlingGameTest {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(20);
+        Assertions.assertThat(game.score()).isEqualTo(20);
     }
 
     @Test
@@ -121,14 +119,14 @@ public class BowlingGameTest {
         int[] rolls = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
 
         playGame(rolls);
-        assertThat(game.score()).isEqualTo(300);
+        Assertions.assertThat(game.score()).isEqualTo(300);
     }
 
     @Test
     public void rollsCanNotScoreNegativePoints() {
         int[] rolls = {-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Negative roll is invalid");
     }
@@ -137,7 +135,7 @@ public class BowlingGameTest {
     public void aRollCanNotScoreMoreThan10Points() {
         int[] rolls = {11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Pin count exceeds pins on the lane");
     }
@@ -146,7 +144,7 @@ public class BowlingGameTest {
     public void twoRollsInAFrameCanNotScoreMoreThan10Points() {
         int[] rolls = {5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Pin count exceeds pins on the lane");
     }
@@ -155,7 +153,7 @@ public class BowlingGameTest {
     public void bonusRollAfterAStrikeInTheLastFrameCanNotScoreMoreThan10Points() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 11, 0};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Pin count exceeds pins on the lane");
     }
@@ -164,7 +162,7 @@ public class BowlingGameTest {
     public void twoBonusRollsAfterAStrikeInTheLastFrameCanNotScoreMoreThan10Points() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 6};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Pin count exceeds pins on the lane");
     }
@@ -175,14 +173,14 @@ public class BowlingGameTest {
 
         playGame(rolls);
 
-        assertThat(game.score()).isEqualTo(26);
+        Assertions.assertThat(game.score()).isEqualTo(26);
     }
 
     @Test
     public void theSecondBonusRollsAfterAStrikeInTheLastFrameCanNotBeAStrikeIfTheFirstOneIsNotAStrike() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6, 10};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Pin count exceeds pins on the lane");
     }
@@ -191,7 +189,7 @@ public class BowlingGameTest {
     public void secondBonusRollAfterAStrikeInTheLastFrameCanNotScoreMoreThan10Points() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 11};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Pin count exceeds pins on the lane");
     }
@@ -202,7 +200,7 @@ public class BowlingGameTest {
 
         playGame(rolls);
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(game::score)
                 .withMessage("Score cannot be taken until the end of the game");
     }
@@ -213,7 +211,7 @@ public class BowlingGameTest {
 
         playGame(rolls);
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(game::score)
                 .withMessage("Score cannot be taken until the end of the game");
     }
@@ -222,7 +220,7 @@ public class BowlingGameTest {
     public void canNotRollIfGameAlreadyHasTenFrames() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Cannot roll after game is over");
     }
@@ -233,7 +231,7 @@ public class BowlingGameTest {
 
         playGame(rolls);
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(game::score)
                 .withMessage("Score cannot be taken until the end of the game");
     }
@@ -244,7 +242,7 @@ public class BowlingGameTest {
 
         playGame(rolls);
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(game::score)
                 .withMessage("Score cannot be taken until the end of the game");
     }
@@ -255,7 +253,7 @@ public class BowlingGameTest {
 
         playGame(rolls);
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(game::score)
                 .withMessage("Score cannot be taken until the end of the game");
     }
@@ -264,7 +262,7 @@ public class BowlingGameTest {
     public void canNotRollAfterBonusRollForSpare() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 2, 2};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Cannot roll after game is over");
     }
@@ -273,7 +271,7 @@ public class BowlingGameTest {
     public void canNotRollAfterBonusRollForStrike() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 2, 2};
 
-        assertThatExceptionOfType(IllegalStateException.class)
+        Assertions.assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> playGame(rolls))
                 .withMessage("Cannot roll after game is over");
     }

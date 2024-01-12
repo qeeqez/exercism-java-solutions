@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 public class DiamondPrinterTest {
 
@@ -14,13 +14,13 @@ public class DiamondPrinterTest {
 
     @Test
     public void testOneByOneDiamond() {
-        assertThat(diamondPrinter.printToList('A'))
+        Assertions.assertThat(diamondPrinter.printToList('A'))
             .containsExactly("A");
     }
 
     @Test
     public void testTwoByTwoDiamond() {
-        assertThat(diamondPrinter.printToList('B'))
+        Assertions.assertThat(diamondPrinter.printToList('B'))
             .containsExactly(
                 " A ",
                 "B B",
@@ -29,7 +29,7 @@ public class DiamondPrinterTest {
 
     @Test
     public void testThreeByThreeDiamond() {
-        assertThat(diamondPrinter.printToList('C'))
+        Assertions.assertThat(diamondPrinter.printToList('C'))
             .containsExactly(
                 "  A  ",
                 " B B ",
@@ -40,7 +40,7 @@ public class DiamondPrinterTest {
 
     @Test
     public void testFourByFourDiamond() {
-        assertThat(diamondPrinter.printToList('D'))
+        Assertions.assertThat(diamondPrinter.printToList('D'))
             .containsExactly(
                 "   A   ",
                 "  B B  ",
@@ -53,7 +53,7 @@ public class DiamondPrinterTest {
 
     @Test
     public void testFullDiamond() {
-        assertThat(diamondPrinter.printToList('Z'))
+        Assertions.assertThat(diamondPrinter.printToList('Z'))
             .containsExactly(
                 "                         A                         ",
                 "                        B B                        ",

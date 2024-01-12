@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 public class RemoteControlCarTest {
     @Test
@@ -13,7 +13,7 @@ public class RemoteControlCarTest {
         TestTrack.race(productionCar);
         TestTrack.race(experimentalCar);
         TestTrack.race(experimentalCar);
-        assertThat(experimentalCar.getDistanceTravelled() - productionCar.getDistanceTravelled()).isEqualTo(20);
+        Assertions.assertThat(experimentalCar.getDistanceTravelled() - productionCar.getDistanceTravelled()).isEqualTo(20);
     }
 
     @Test
@@ -24,15 +24,15 @@ public class RemoteControlCarTest {
         prc1.setNumberOfVictories(3);
         prc2.setNumberOfVictories(2);
 
-        assertThat(prc1.getNumberOfVictories()).isEqualTo(3);
-        assertThat(prc2.getNumberOfVictories()).isEqualTo(2);
+        Assertions.assertThat(prc1.getNumberOfVictories()).isEqualTo(3);
+        Assertions.assertThat(prc2.getNumberOfVictories()).isEqualTo(2);
 
         List<ProductionRemoteControlCar> rankings = TestTrack.getRankedCars(prc1, prc2);
-        assertThat(rankings.get(1)).isEqualTo(prc1);
+        Assertions.assertThat(rankings.get(1)).isEqualTo(prc1);
     }
 
     @Test
     public void ensureCarsAreComparable() {
-        assertThat(RemoteControlCar.class).isAssignableFrom(ProductionRemoteControlCar.class);
+        Assertions.assertThat(RemoteControlCar.class).isAssignableFrom(ProductionRemoteControlCar.class);
     }
 }

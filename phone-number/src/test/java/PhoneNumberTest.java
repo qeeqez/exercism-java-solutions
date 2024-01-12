@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Assertions;
 import static org.junit.Assert.assertThrows;
 
@@ -43,7 +43,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("123456789"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("incorrect number of digits");
     }
 
@@ -54,7 +54,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("22234567890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("11 digits must start with 1");
     }
 
@@ -85,7 +85,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("321234567890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("more than 11 digits");
     }
 
@@ -96,7 +96,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("123-abc-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("letters not permitted");
     }
 
@@ -107,7 +107,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("123-@:!-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("punctuations not permitted");
     }
 
@@ -118,7 +118,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("(023) 456-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("area code cannot start with zero");
     }
 
@@ -129,7 +129,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("(123) 456-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("area code cannot start with one");
     }
 
@@ -140,7 +140,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("(223) 056-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("exchange code cannot start with zero");
     }
 
@@ -151,7 +151,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("(223) 156-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("exchange code cannot start with one");
     }
 
@@ -162,7 +162,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("1 (023) 456-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("area code cannot start with zero");
     }
 
@@ -173,7 +173,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("1 (123) 456-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("area code cannot start with one");
     }
 
@@ -184,7 +184,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("1 (223) 056-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("exchange code cannot start with zero");
     }
 
@@ -195,7 +195,7 @@ public class PhoneNumberTest {
                         IllegalArgumentException.class,
                         () -> new PhoneNumber("1 (223) 156-7890"));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
                 .hasMessage("exchange code cannot start with one");
     }
 }

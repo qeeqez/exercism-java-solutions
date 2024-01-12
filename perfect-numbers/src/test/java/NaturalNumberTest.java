@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.Assertions.assertThatExceptionOfType;
 import org.junit.jupiter.api.Assertions;
 
 public class NaturalNumberTest {
@@ -66,14 +66,14 @@ public class NaturalNumberTest {
 
     @Test
     public void testThatNonNegativeIntegerIsRejected() {
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
             .isThrownBy(() -> new NaturalNumber(0))
             .withMessage("You must supply a natural number (positive integer)");
     }
 
     @Test
     public void testThatNegativeIntegerIsRejected() {
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
             .isThrownBy(() -> new NaturalNumber(-1))
             .withMessage("You must supply a natural number (positive integer)");
     }

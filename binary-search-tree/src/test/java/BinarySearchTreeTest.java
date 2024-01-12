@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 public class BinarySearchTreeTest {
 
@@ -16,8 +16,8 @@ public class BinarySearchTreeTest {
 
         BinarySearchTree.Node<Integer> root = binarySearchTree.getRoot();
 
-        assertThat(root).isNotNull();
-        assertThat(root.getData()).isEqualTo(expected);
+        Assertions.assertThat(root).isNotNull();
+        Assertions.assertThat(root.getData()).isEqualTo(expected);
     }
 
 
@@ -34,11 +34,11 @@ public class BinarySearchTreeTest {
         BinarySearchTree.Node<Character> root = binarySearchTree.getRoot();
         BinarySearchTree.Node<Character> left = root.getLeft();
 
-        assertThat(root).isNotNull();
-        assertThat(left).isNotNull();
+        Assertions.assertThat(root).isNotNull();
+        Assertions.assertThat(left).isNotNull();
 
-        assertThat(root.getData()).isEqualTo(expectedRoot);
-        assertThat(left.getData()).isEqualTo(expectedLeft);
+        Assertions.assertThat(root.getData()).isEqualTo(expectedRoot);
+        Assertions.assertThat(left.getData()).isEqualTo(expectedLeft);
     }
 
     @Test
@@ -53,11 +53,11 @@ public class BinarySearchTreeTest {
         BinarySearchTree.Node<String> root = binarySearchTree.getRoot();
         BinarySearchTree.Node<String> left = root.getLeft();
 
-        assertThat(root).isNotNull();
-        assertThat(left).isNotNull();
+        Assertions.assertThat(root).isNotNull();
+        Assertions.assertThat(left).isNotNull();
 
-        assertThat(root.getData()).isEqualTo(expectedRoot);
-        assertThat(left.getData()).isEqualTo(expectedLeft);
+        Assertions.assertThat(root.getData()).isEqualTo(expectedRoot);
+        Assertions.assertThat(left.getData()).isEqualTo(expectedLeft);
     }
 
     @Test
@@ -72,11 +72,11 @@ public class BinarySearchTreeTest {
         BinarySearchTree.Node<Integer> root = binarySearchTree.getRoot();
         BinarySearchTree.Node<Integer> right = root.getRight();
 
-        assertThat(root).isNotNull();
-        assertThat(right).isNotNull();
+        Assertions.assertThat(root).isNotNull();
+        Assertions.assertThat(right).isNotNull();
 
-        assertThat(root.getData()).isEqualTo(expectedRoot);
-        assertThat(right.getData()).isEqualTo(expectedRight);
+        Assertions.assertThat(root.getData()).isEqualTo(expectedRoot);
+        Assertions.assertThat(right.getData()).isEqualTo(expectedRight);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class BinarySearchTreeTest {
         List<Character> treeData = List.of('4', '2', '6', '1', '3', '5', '7');
         treeData.forEach(binarySearchTree::insert);
 
-        assertThat(binarySearchTree.getAsLevelOrderList()).isEqualTo(expected);
+        Assertions.assertThat(binarySearchTree.getAsLevelOrderList()).isEqualTo(expected);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class BinarySearchTreeTest {
 
         binarySearchTree.insert("2");
 
-        assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
+        Assertions.assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
     @Test
@@ -108,7 +108,7 @@ public class BinarySearchTreeTest {
         binarySearchTree.insert(2);
         binarySearchTree.insert(1);
 
-        assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
+        Assertions.assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
     @Test
@@ -119,7 +119,7 @@ public class BinarySearchTreeTest {
         binarySearchTree.insert('2');
         binarySearchTree.insert('2');
 
-        assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
+        Assertions.assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
     @Test
@@ -130,7 +130,7 @@ public class BinarySearchTreeTest {
         binarySearchTree.insert('2');
         binarySearchTree.insert('3');
 
-        assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
+        Assertions.assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
     @Test
@@ -141,6 +141,6 @@ public class BinarySearchTreeTest {
         List<String> treeData = List.of("2", "1", "3", "6", "7", "5");
         treeData.forEach(binarySearchTree::insert);
 
-        assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
+        Assertions.assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 }

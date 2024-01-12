@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Assertions;
 import static org.junit.Assert.assertThrows;
 
@@ -59,7 +59,7 @@ public class GrainsTest {
                 IllegalArgumentException.class,
                 () -> grains.grainsOnSquare(0));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
             .hasMessage("square must be between 1 and 64");
     }
 
@@ -70,7 +70,7 @@ public class GrainsTest {
                 IllegalArgumentException.class,
                 () -> grains.grainsOnSquare(-1));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
             .hasMessage("square must be between 1 and 64");
     }
 
@@ -81,7 +81,7 @@ public class GrainsTest {
                 IllegalArgumentException.class,
                 () -> grains.grainsOnSquare(65));
 
-        assertThat(expected)
+        Assertions.assertThat(expected)
             .hasMessage("square must be between 1 and 64");
     }
 

@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 public class ProverbTest {
 
@@ -8,14 +8,14 @@ public class ProverbTest {
     public void zeroWordsAreGiven() {
         String[] words  = new String[0];
 
-        assertThat(new Proverb(words).recite()).isEqualTo("");
+        Assertions.assertThat(new Proverb(words).recite()).isEqualTo("");
     }
 
     @Test
     public void singlePieceOfProverb() {
         String[] words  = new String[]{"nail"};
 
-        assertThat(new Proverb(words).recite())
+        Assertions.assertThat(new Proverb(words).recite())
             .isEqualTo("And all for the want of a nail.");
     }
 
@@ -23,7 +23,7 @@ public class ProverbTest {
     public void twoPiecesOfProverb() {
         String[] words  = new String[]{"nail", "shoe"};
 
-        assertThat(new Proverb(words).recite())
+        Assertions.assertThat(new Proverb(words).recite())
             .isEqualTo(
                 "For want of a nail the shoe was lost.\n" +
                 "And all for the want of a nail.");
@@ -33,7 +33,7 @@ public class ProverbTest {
     public void shortChainOfConsequences() {
         String[] words  = new String[]{"nail", "shoe", "horse"};
 
-        assertThat(new Proverb(words).recite())
+        Assertions.assertThat(new Proverb(words).recite())
             .isEqualTo(
                     """
                             For want of a nail the shoe was lost.
@@ -45,7 +45,7 @@ public class ProverbTest {
     public void fullProverb() {
         String[] words  = new String[]{"nail", "shoe", "horse", "rider", "message", "battle", "kingdom"};
 
-        assertThat(new Proverb(words).recite())
+        Assertions.assertThat(new Proverb(words).recite())
             .isEqualTo(
                     """
                             For want of a nail the shoe was lost.
@@ -61,7 +61,7 @@ public class ProverbTest {
     public void fourPiecesModernizedProverb() {
         String[] words  = new String[]{"pin", "gun", "soldier", "battle"};
 
-        assertThat(new Proverb(words).recite())
+        Assertions.assertThat(new Proverb(words).recite())
             .isEqualTo(
                     """
                             For want of a pin the gun was lost.
