@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public class KnapsackTest {
 
     private Knapsack knapsack;
 
-    @Before
+    @BeforeEach
     public void setup() {
         knapsack = new Knapsack();
     }

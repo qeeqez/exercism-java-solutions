@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 public class LuhnValidatorTest {
     private LuhnValidator luhnValidator;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         luhnValidator = new LuhnValidator();
     }

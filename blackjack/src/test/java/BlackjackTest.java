@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -8,7 +8,7 @@ public class BlackjackTest {
 
     private Blackjack blackjack;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         blackjack = new Blackjack();
     }

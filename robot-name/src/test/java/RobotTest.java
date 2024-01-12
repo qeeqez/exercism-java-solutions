@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ public class RobotTest {
     private static final String EXPECTED_ROBOT_NAME_PATTERN = "[A-Z]{2}\\d{3}";
     private Robot robot;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         robot = new Robot();
     }

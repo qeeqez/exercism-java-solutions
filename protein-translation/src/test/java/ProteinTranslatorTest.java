@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,7 +10,7 @@ public class ProteinTranslatorTest {
 
     private ProteinTranslator proteinTranslator;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         proteinTranslator = new ProteinTranslator();
     }

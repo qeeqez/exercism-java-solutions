@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IsogramCheckerTest {
     private IsogramChecker isogramChecker;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         isogramChecker = new IsogramChecker();
     }

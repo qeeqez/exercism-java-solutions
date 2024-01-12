@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -9,7 +9,7 @@ public class CarsAssembleTest {
     private CarsAssemble carsAssemble;
     private final double epsilon = 0.0000001d;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         carsAssemble = new CarsAssemble();
     }

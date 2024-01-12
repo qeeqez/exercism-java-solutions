@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BobTest {
     private Bob bob;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         bob = new Bob();
     }

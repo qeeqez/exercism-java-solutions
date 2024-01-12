@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -7,7 +7,7 @@ public class PigLatinTranslatorTest {
 
     private PigLatinTranslator pigLatinTranslator;
 
-    @Before
+    @BeforeEach
     public void setup() {
         pigLatinTranslator = new PigLatinTranslator();
     }

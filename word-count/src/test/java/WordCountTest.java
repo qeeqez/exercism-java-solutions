@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class WordCountTest {
     private Map<String, Integer> actualWordCount;
     private Map<String, Integer> expectedWordCount;
 
-    @Before
+    @BeforeEach
     public void setup() {
         wordCount = new WordCount();
         expectedWordCount = new HashMap<>();

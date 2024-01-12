@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -8,7 +8,7 @@ public class LeapTest {
 
     private Leap leap;
 
-    @Before
+    @BeforeEach
     public void setup() {
         leap = new Leap();
     }

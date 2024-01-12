@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,7 +7,7 @@ public class ArmstrongNumbersTest {
 
     private ArmstrongNumbers armstrongNumbers;
 
-    @Before
+    @BeforeEach
     public void setup() {
         armstrongNumbers = new ArmstrongNumbers();
     }

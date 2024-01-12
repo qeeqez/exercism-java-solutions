@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
@@ -10,7 +10,7 @@ public class FlattenerTest {
 
     private Flattener flattener;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         flattener = new Flattener();
     }
