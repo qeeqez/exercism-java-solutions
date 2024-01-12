@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -19,10 +20,7 @@ class HighScores {
     }
 
     Integer personalBest() {
-        return scores
-                .stream()
-                .mapToInt(i -> i)
-                .max().orElseThrow(NoSuchElementException::new);
+        return Collections.max(scores);
     }
 
     List<Integer> personalTopThree() {
