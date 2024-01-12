@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.Assertions.assertFalse;
 import static org.junit.Assert.Assertions.assertTrue;
 
 public class PangramCheckerTest {
@@ -15,7 +15,7 @@ public class PangramCheckerTest {
 
     @Test
     public void emptySentenceIsNotPangram() {
-        assertFalse(pangramChecker.isPangram(""));
+        Assertions.assertFalse(pangramChecker.isPangram(""));
     }
 
     @Test
@@ -30,12 +30,12 @@ public class PangramCheckerTest {
 
     @Test
     public void phraseMissingCharacterXIsNotPangram() {
-        assertFalse(pangramChecker.isPangram("a quick movement of the enemy will jeopardize five gunboats"));
+        Assertions.assertFalse(pangramChecker.isPangram("a quick movement of the enemy will jeopardize five gunboats"));
     }
 
     @Test
     public void phraseMissingCharacterHIsNotPangram() {
-        assertFalse(pangramChecker.isPangram("five boxing wizards jump quickly at it"));
+        Assertions.assertFalse(pangramChecker.isPangram("five boxing wizards jump quickly at it"));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class PangramCheckerTest {
 
     @Test
     public void phraseWithMissingLettersReplacedByNumbersIsNotPangram() {
-        assertFalse(pangramChecker.isPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"));
+        Assertions.assertFalse(pangramChecker.isPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"));
     }
 
     @Test
@@ -60,6 +60,6 @@ public class PangramCheckerTest {
 
     @Test
     public void caseInsensitivePhraseIsNotPangram() {
-        assertFalse(pangramChecker.isPangram("the quick brown fox jumps over with lazy FX"));
+        Assertions.assertFalse(pangramChecker.isPangram("the quick brown fox jumps over with lazy FX"));
     }
 }

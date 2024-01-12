@@ -15,14 +15,14 @@ public class TriangleTest {
     public void trianglesWithOneUnequalSideAreNotEquilateral() throws TriangleException {
         Triangle triangle = new Triangle(2, 3, 2);
 
-        assertFalse(triangle.isEquilateral());
+        Assertions.assertFalse(triangle.isEquilateral());
     }
 
     @Test
     public void trianglesWithNoEqualSidesAreNotEquilateral() throws TriangleException {
         Triangle triangle = new Triangle(5, 4, 6);
 
-        assertFalse(triangle.isEquilateral());
+        Assertions.assertFalse(triangle.isEquilateral());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class TriangleTest {
     public void noSidesAreEqualCantBeIsoceles() throws TriangleException {
         Triangle triangle = new Triangle(2, 3, 4);
 
-        assertFalse(triangle.isIsosceles());
+        Assertions.assertFalse(triangle.isIsosceles());
     }
 
     @Test
@@ -113,14 +113,14 @@ public class TriangleTest {
     public void allSidesEqualAreNotScalene() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 4);
 
-        assertFalse(triangle.isScalene());
+        Assertions.assertFalse(triangle.isScalene());
     }
 
     @Test
     public void twoSidesEqualAreNotScalene() throws TriangleException {
         Triangle triangle = new Triangle(4, 4, 3);
 
-        assertFalse(triangle.isScalene());
+        Assertions.assertFalse(triangle.isScalene());
     }
 
     @Test

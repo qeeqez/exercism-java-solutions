@@ -1,8 +1,6 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.Assertions.assertTrue;
 
 public class LeapTest {
 
@@ -15,12 +13,12 @@ public class LeapTest {
 
     @Test
     public void testYearNotDivBy4InCommonYear() {
-        assertFalse(leap.isLeapYear(2015));
+        Assertions.assertFalse(leap.isLeapYear(2015));
     }
 
     @Test
     public void testYearDivBy2NotDivBy4InCommonYear() {
-        assertFalse(leap.isLeapYear(1970));
+        Assertions.assertFalse(leap.isLeapYear(1970));
     }
 
     @Test
@@ -35,12 +33,12 @@ public class LeapTest {
 
     @Test
     public void testYearDivBy100NotDivBy400InCommonYear() {
-        assertFalse(leap.isLeapYear(2100));
+        Assertions.assertFalse(leap.isLeapYear(2100));
     }
 
     @Test
     public void testYearDivBy100NotDivBy3IsNotLeapYear() {
-        assertFalse(leap.isLeapYear(1900));
+        Assertions.assertFalse(leap.isLeapYear(1900));
     }
 
     @Test
@@ -55,7 +53,7 @@ public class LeapTest {
 
     @Test
     public void testYearDivBy200NotDivBy400InCommonYear() {
-        assertFalse(leap.isLeapYear(1800));
+        Assertions.assertFalse(leap.isLeapYear(1800));
     }
 
 }
