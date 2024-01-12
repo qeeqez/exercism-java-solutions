@@ -25,7 +25,7 @@ public class GameMaster {
     }
 
     public String describe(Character character, Destination destination) {
-        return describe(character) + " " + describe(TravelMethod.WALKING) + " " + describe(destination);
+        return describe(character, destination, TravelMethod.WALKING);
     }
 
 }
