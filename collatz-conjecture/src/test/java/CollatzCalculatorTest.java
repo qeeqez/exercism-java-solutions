@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class CollatzCalculatorTest {
 
-    private CollatzCalculator collatzCalculator = new CollatzCalculator();
+    private final CollatzCalculator collatzCalculator = new CollatzCalculator();
 
     @Test
     public void testZeroStepsRequiredWhenStartingFrom1() {
