@@ -4,21 +4,26 @@ class CaptainsLog {
 
     private static final char[] PLANET_CLASSES = new char[]{'D', 'H', 'J', 'K', 'L', 'M', 'N', 'R', 'T', 'Y'};
 
-    private Random random;
+    private final Random random;
 
     CaptainsLog(Random random) {
         this.random = random;
     }
 
     char randomPlanetClass() {
-        throw new UnsupportedOperationException("Please implement the CaptainsLog.randomPlanetClass() method");
+        int randomPlanet = random.nextInt(10);
+        return PLANET_CLASSES[randomPlanet];
     }
 
     String randomShipRegistryNumber() {
-        throw new UnsupportedOperationException("Please implement the CaptainsLog.randomShipRegistryNumber() method");
+        int shipNumber = 1000 + random.nextInt(9000);
+        return "NCC-" + shipNumber;
     }
 
     double randomStardate() {
-        throw new UnsupportedOperationException("Please implement the CaptainsLog.randomStardate() method");
+        int century = 40000;
+        int season = 1000;
+        double date = 1000 * random.nextDouble();
+        return century + season + date;
     }
 }
