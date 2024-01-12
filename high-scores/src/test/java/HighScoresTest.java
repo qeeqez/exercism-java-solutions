@@ -1,8 +1,7 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -52,8 +51,8 @@ public class HighScoresTest {
 
     @Test
     public void shouldReturnPersonalTopWhenThereIsOnlyOneScore() {
-        HighScores highScores = new HighScores(Arrays.asList(40));
-        assertThat(highScores.personalTopThree()).isEqualTo(Arrays.asList(40));
+        HighScores highScores = new HighScores(List.of(40));
+        assertThat(highScores.personalTopThree()).isEqualTo(List.of(40));
     }
 
     @Test
