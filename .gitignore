@@ -21,3 +21,5 @@ out/
 .DS_Store
 .AppleDouble
 .LSOverride
+# Ignore Gradle build output directory
+build
