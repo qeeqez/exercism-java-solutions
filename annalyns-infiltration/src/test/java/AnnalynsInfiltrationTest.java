@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("ConstantValue")
 public class AnnalynsInfiltrationTest {
     @Test
     public void cannot_execute_fast_attack_if_knight_is_awake() {
