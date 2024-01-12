@@ -1,25 +1,36 @@
+import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 class HighScores {
 
+    private final List<Integer> scores;
+
     public HighScores(List<Integer> highScores) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.scores = highScores;
     }
 
     List<Integer> scores() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.scores;
     }
 
     Integer latest() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return scores.getLast();
     }
 
     Integer personalBest() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return scores
+                .stream()
+                .mapToInt(i -> i)
+                .max().orElseThrow(NoSuchElementException::new);
     }
 
     List<Integer> personalTopThree() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return scores
+                .stream()
+                .sorted(Comparator.reverseOrder())
+                .limit(3)
+                .toList();
     }
 
 }
