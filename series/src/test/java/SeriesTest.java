@@ -7,8 +7,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Assertions;
-
 public class SeriesTest {
 
     @Test
