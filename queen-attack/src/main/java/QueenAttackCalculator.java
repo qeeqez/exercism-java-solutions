@@ -3,6 +3,10 @@ public class QueenAttackCalculator {
     private final Queen second;
 
     public QueenAttackCalculator(Queen first, Queen second) {
+        if (first == null || second == null) {
+            throw new IllegalArgumentException("You must supply valid positions for both Queens.");
+        }
+
         this.first = first;
         this.second = second;
 

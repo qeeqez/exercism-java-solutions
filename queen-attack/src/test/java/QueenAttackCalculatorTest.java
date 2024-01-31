@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
@@ -97,12 +96,19 @@ public class QueenAttackCalculatorTest {
         assertTrue(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
+    @SuppressWarnings("DataFlowIssue")
     @Test
     public void testNullPositionsNotAllowed() {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new QueenAttackCalculator(null, new Queen(0, 7)))
                 .withMessage("You must supply valid positions for both Queens.");
+    }
+
+    @Test
+    public void testWrongPositionNotAllowed() {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new QueenAttackCalculator(new Queen(1, 1), new Queen(8, 4)))
+                .withMessage("Queen position must have row <= 7.");
     }
 
     @Test
