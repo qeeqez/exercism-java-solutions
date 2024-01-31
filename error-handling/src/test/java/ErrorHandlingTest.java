@@ -24,7 +24,6 @@ public class ErrorHandlingTest {
                 .withMessage("This is the detail message.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowAnyCheckedException() {
         assertThatExceptionOfType(Exception.class)
@@ -32,7 +31,6 @@ public class ErrorHandlingTest {
                 .isNotInstanceOf(RuntimeException.class);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowAnyCheckedExceptionWithDetailMessage() {
         assertThatExceptionOfType(Exception.class)
