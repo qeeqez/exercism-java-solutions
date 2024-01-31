@@ -5,23 +5,30 @@ public class QueenAttackCalculator {
     public QueenAttackCalculator(Queen first, Queen second) {
         this.first = first;
         this.second = second;
+
+        if (isSamePosition()) {
+            throw new IllegalArgumentException("Queens cannot occupy the same position.");
+        }
     }
 
     public boolean canQueensAttackOneAnother() {
-        return rowIsSame() || columnIsSame() || queensOnDiagonal();
+        return isSameRow() || isSameColumn() || isOnDiagonal();
     }
 
-    private boolean rowIsSame() {
+    private boolean isSameRow() {
         return first.x() == second.x();
     }
 
-    private boolean columnIsSame() {
+    private boolean isSameColumn() {
         return first.y() == second.y();
     }
 
-    private boolean queensOnDiagonal() {
+    private boolean isOnDiagonal() {
         return Math.abs(second.x() - first.x()) == Math.abs(second.y() - first.y());
     }
 
+    private boolean isSamePosition() {
+        return isSameRow() && isSameColumn();
+    }
 
 }

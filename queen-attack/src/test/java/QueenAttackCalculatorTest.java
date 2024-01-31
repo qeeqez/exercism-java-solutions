@@ -105,7 +105,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("You must supply valid positions for both Queens.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensMustNotOccupyTheSameSquare() {
         assertThatExceptionOfType(IllegalArgumentException.class)
