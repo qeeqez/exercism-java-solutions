@@ -40,14 +40,12 @@ public class ErrorHandlingTest {
                 .withMessage("This is the detail message.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowAnyUncheckedException() {
         assertThatExceptionOfType(RuntimeException.class)
                 .isThrownBy(() -> errorHandling.handleErrorByThrowingAnyUncheckedException());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowAnyUncheckedExceptionWithDetailMessage() {
         assertThatExceptionOfType(RuntimeException.class)
