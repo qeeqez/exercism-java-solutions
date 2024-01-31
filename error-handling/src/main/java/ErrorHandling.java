@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Optional;
 
 class ErrorHandling {
@@ -10,36 +11,36 @@ class ErrorHandling {
         throw new IllegalArgumentException(message);
     }
 
-    void handleErrorByThrowingAnyCheckedException() throws Exception {
-        throw new CustomCheckedException();
+    void handleErrorByThrowingAnyCheckedException() throws IOException {
+        throw new IOException();
     }
 
-    void handleErrorByThrowingAnyCheckedExceptionWithDetailMessage(String message) throws Exception {
-        throw new CustomCheckedException(message);
+    void handleErrorByThrowingAnyCheckedExceptionWithDetailMessage(String message) throws IOException {
+        throw new IOException(message);
     }
 
     void handleErrorByThrowingAnyUncheckedException() {
-        throw new CustomUncheckedException();
+        throw new ArithmeticException();
     }
 
     void handleErrorByThrowingAnyUncheckedExceptionWithDetailMessage(String message) {
-        throw new CustomUncheckedException(message);
+        throw new ArithmeticException(message);
     }
 
-    void handleErrorByThrowingCustomCheckedException() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    void handleErrorByThrowingCustomCheckedException() throws Exception {
+        throw new CustomCheckedException();
     }
 
-    void handleErrorByThrowingCustomCheckedExceptionWithDetailMessage(String message) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    void handleErrorByThrowingCustomCheckedExceptionWithDetailMessage(String message) throws Exception {
+        throw new CustomCheckedException(message);
     }
 
     void handleErrorByThrowingCustomUncheckedException() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        throw new CustomUncheckedException();
     }
 
     void handleErrorByThrowingCustomUncheckedExceptionWithDetailMessage(String message) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        throw new CustomUncheckedException(message);
     }
 
     Optional<Integer> handleErrorByReturningOptionalInstance(String integer) {

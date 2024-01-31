@@ -54,14 +54,12 @@ public class ErrorHandlingTest {
                 .withMessage("This is the detail message.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowCustomCheckedException() {
         assertThatExceptionOfType(CustomCheckedException.class)
                 .isThrownBy(() -> errorHandling.handleErrorByThrowingCustomCheckedException());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowCustomCheckedExceptionWithDetailMessage() {
         assertThatExceptionOfType(CustomCheckedException.class)
@@ -70,14 +68,12 @@ public class ErrorHandlingTest {
                 .withMessage("This is the detail message.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowCustomUncheckedException() {
         assertThatExceptionOfType(CustomUncheckedException.class)
                 .isThrownBy(() -> errorHandling.handleErrorByThrowingCustomUncheckedException());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowCustomUncheckedExceptionWithDetailMessage() {
         assertThatExceptionOfType(CustomUncheckedException.class)
