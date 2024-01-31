@@ -82,7 +82,6 @@ public class ErrorHandlingTest {
                 .withMessage("This is the detail message.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testReturnOptionalInstance() {
         Optional<Integer> successfulResult = errorHandling.handleErrorByReturningOptionalInstance("1");

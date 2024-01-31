@@ -44,7 +44,11 @@ class ErrorHandling {
     }
 
     Optional<Integer> handleErrorByReturningOptionalInstance(String integer) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        try {
+            return Integer.valueOf(integer).describeConstable();
+        } catch (NumberFormatException exception) {
+            return Optional.empty();
+        }
     }
 
 }
