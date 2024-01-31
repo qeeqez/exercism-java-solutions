@@ -16,7 +16,6 @@ public class ErrorHandlingTest {
                 .isThrownBy(() -> errorHandling.handleErrorByThrowingIllegalArgumentException());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testThrowIllegalArgumentExceptionWithDetailMessage() {
         assertThatExceptionOfType(IllegalArgumentException.class)
