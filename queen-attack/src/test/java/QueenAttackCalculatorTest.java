@@ -13,7 +13,6 @@ public class QueenAttackCalculatorTest {
         new Queen(2, 2);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHavePositiveRow() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -21,7 +20,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have positive row.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHaveRowOnBoard() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -29,7 +27,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have row <= 7.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHavePositiveColumn() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -37,7 +34,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have positive column.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHaveColumnOnBoard() {
         assertThatExceptionOfType(IllegalArgumentException.class)
