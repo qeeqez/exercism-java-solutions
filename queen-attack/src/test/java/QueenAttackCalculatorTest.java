@@ -41,7 +41,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have column <= 7.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCannotAttack() {
         QueenAttackCalculator calculator
@@ -50,7 +49,6 @@ public class QueenAttackCalculatorTest {
         assertFalse(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnTheSameRow() {
         QueenAttackCalculator calculator
@@ -59,7 +57,6 @@ public class QueenAttackCalculatorTest {
         assertTrue(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnTheSameColumn() {
         QueenAttackCalculator calculator
@@ -68,7 +65,6 @@ public class QueenAttackCalculatorTest {
         assertTrue(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnFirstDiagonal() {
         QueenAttackCalculator calculator
@@ -77,7 +73,6 @@ public class QueenAttackCalculatorTest {
         assertTrue(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnSecondDiagonal() {
         QueenAttackCalculator calculator
@@ -86,7 +81,6 @@ public class QueenAttackCalculatorTest {
         assertTrue(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnThirdDiagonal() {
         QueenAttackCalculator calculator
@@ -95,7 +89,6 @@ public class QueenAttackCalculatorTest {
         assertTrue(calculator.canQueensAttackOneAnother());
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnFourthDiagonal() {
         QueenAttackCalculator calculator
