@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.Optional;
 
+@SuppressWarnings("SameParameterValue")
 class ErrorHandling {
 
     void handleErrorByThrowingIllegalArgumentException() {

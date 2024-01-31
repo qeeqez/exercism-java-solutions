@@ -1,19 +1,18 @@
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
 public class ErrorHandlingTest {
 
-    private ErrorHandling errorHandling = new ErrorHandling();
+    private final ErrorHandling errorHandling = new ErrorHandling();
 
     @Test
     public void testThrowIllegalArgumentException() {
         assertThatExceptionOfType(Exception.class)
-                .isThrownBy(() -> errorHandling.handleErrorByThrowingIllegalArgumentException());
+                .isThrownBy(errorHandling::handleErrorByThrowingIllegalArgumentException);
     }
 
     @Test
@@ -27,7 +26,7 @@ public class ErrorHandlingTest {
     @Test
     public void testThrowAnyCheckedException() {
         assertThatExceptionOfType(Exception.class)
-                .isThrownBy(() -> errorHandling.handleErrorByThrowingAnyCheckedException())
+                .isThrownBy(errorHandling::handleErrorByThrowingAnyCheckedException)
                 .isNotInstanceOf(RuntimeException.class);
     }
 
@@ -43,7 +42,7 @@ public class ErrorHandlingTest {
     @Test
     public void testThrowAnyUncheckedException() {
         assertThatExceptionOfType(RuntimeException.class)
-                .isThrownBy(() -> errorHandling.handleErrorByThrowingAnyUncheckedException());
+                .isThrownBy(errorHandling::handleErrorByThrowingAnyUncheckedException);
     }
 
     @Test
@@ -57,7 +56,7 @@ public class ErrorHandlingTest {
     @Test
     public void testThrowCustomCheckedException() {
         assertThatExceptionOfType(CustomCheckedException.class)
-                .isThrownBy(() -> errorHandling.handleErrorByThrowingCustomCheckedException());
+                .isThrownBy(errorHandling::handleErrorByThrowingCustomCheckedException);
     }
 
     @Test
@@ -71,7 +70,7 @@ public class ErrorHandlingTest {
     @Test
     public void testThrowCustomUncheckedException() {
         assertThatExceptionOfType(CustomUncheckedException.class)
-                .isThrownBy(() -> errorHandling.handleErrorByThrowingCustomUncheckedException());
+                .isThrownBy(errorHandling::handleErrorByThrowingCustomUncheckedException);
     }
 
     @Test
