@@ -1,32 +1,24 @@
+import java.util.stream.Collectors;
+
 class Atbash {
 
     String encode(String input) {
-        input = clearString(input);
-
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            if (i > 0 && i % 5 == 0) output.append(" ");
-            output.append(encodeDecode(input.charAt(i)));
-        }
-
-        return output.toString();
+        return transform(input).replaceAll(".{5}(?=.)", "$0 ");
     }
 
     String decode(String input) {
-        input = clearString(input);
-
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            output.append(encodeDecode(input.charAt(i)));
-        }
-
-        return output.toString();
+        return transform(input);
     }
 
-    private String clearString(String input) {
+    private String transform(String input) {
         return input
-                .replaceAll("[^A-Za-z1-9]+", "")
-                .toLowerCase();
+                .toLowerCase()
+                .chars()
+                .mapToObj(ch -> (char) ch)
+                .filter(Character::isLetterOrDigit)
+                .map(this::encodeDecode)
+                .map(String::valueOf)
+                .collect(Collectors.joining());
     }
 
     private char encodeDecode(char c) {
