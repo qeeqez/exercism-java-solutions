@@ -6,8 +6,9 @@ class Settings {
     private boolean matchCaseInsensitive = false;
     private boolean matchInvert = false;
     private boolean matchEntireLine = false;
+    private boolean multipleFiles = false;
 
-    Settings(List<String> flags) {
+    Settings(List<String> flags, List<String> files) {
         flags.forEach(flag -> {
             switch (flag) {
                 case "-n": {
@@ -32,6 +33,8 @@ class Settings {
                 }
             }
         });
+
+        multipleFiles = files.size() > 1;
     }
 
     public boolean isPrependLineNumber() {
@@ -52,5 +55,9 @@ class Settings {
 
     public boolean isMatchEntireLine() {
         return matchEntireLine;
+    }
+
+    public boolean isMultipleFiles() {
+        return multipleFiles;
     }
 }

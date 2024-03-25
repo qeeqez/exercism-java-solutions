@@ -2,29 +2,22 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
+import java.util.*;
 
 class GrepTool {
 
     String grep(String pattern, List<String> flags, List<String> files) {
-        StringBuilder output = new StringBuilder();
+        Set<String> output = new LinkedHashSet<>();
 
-        Settings settings = new Settings(flags);
+        Settings settings = new Settings(flags, files);
 
-        files.forEach(fileName -> {
-            output.append(grepFile(pattern, settings, fileName));
-        });
+        files.forEach(fileName -> output.addAll(grepFile(pattern, settings, fileName)));
 
-        // remove last new line
-        if (!output.isEmpty()) {
-            output.setLength(output.length() - 1);
-        }
-
-        return output.toString();
+        return String.join("\n", output).trim();
     }
 
-    private String grepFile(String pattern, Settings settings, String fileName) {
-        StringBuilder output = new StringBuilder();
+    private List<String> grepFile(String pattern, Settings settings, String fileName) {
+        List<String> output = new ArrayList<>();
 
         try {
             FileInputStream fs = new FileInputStream(fileName);
@@ -35,7 +28,7 @@ class GrepTool {
             while ((line = br.readLine()) != null) {
                 if (isCorrectLine(line, pattern, settings)) {
                     line = applyFormat(line, index, fileName, settings);
-                    output.append(line).append("\n");
+                    output.add(line);
                 }
                 index++;
             }
@@ -46,7 +39,7 @@ class GrepTool {
             throw new RuntimeException(e);
         }
 
-        return output.toString();
+        return output;
     }
 
     private boolean isCorrectLine(String line, String pattern, Settings settings) {
@@ -71,9 +64,14 @@ class GrepTool {
             return fileName;
         }
         if (settings.isPrependLineNumber()) {
-            return index + ":" + line;
+            line = index + ":" + line;
         }
-        return line;
+
+        if (settings.isMultipleFiles()) {
+            return fileName + ":" + line;
+        } else {
+            return line;
+        }
     }
 
 

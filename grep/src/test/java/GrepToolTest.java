@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -307,7 +306,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesOneMatchPrintFileNamesFlag() {
         String expected = "iliad.txt\n"
@@ -322,7 +320,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesSeveralMatchesCaseInsensitiveFlag() {
         String expected = "iliad.txt:Caused to Achaia's host, sent many a soul\n"
@@ -345,7 +342,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesSeveralMatchesInvertedFlag() {
         String expected = "iliad.txt:Achilles sing, O Goddess! Peleus' son;\n"
@@ -361,7 +357,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesOneMatchEntireLinesFlag() {
         String expected = "midsummer-night.txt:But I beseech your grace that I may know";
@@ -375,7 +370,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesOneMatchMultipleFlags() {
         String expected = "paradise-lost.txt:4:With loss of Eden, till one greater Man";
@@ -389,7 +383,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesNoMatchesVariousFlags() {
         String expected = "";
@@ -403,7 +396,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesSeveralMatchesFileFlagTakesPrecedenceOverLineNumberFlag() {
         String expected = "iliad.txt\n"
@@ -418,7 +410,6 @@ public class GrepToolTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void multipleFilesSeveralMatchesInvertedAndMatchEntireLinesFlags() {
         String expected = "iliad.txt:Achilles sing, O Goddess! Peleus' son;\n"
