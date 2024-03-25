@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ledger {
-    public LedgerEntry createLedgerEntry(String d, String desc, int c) {
-        LedgerEntry le = new LedgerEntry();
-        le.setChange(c);
-        le.setDescription(desc);
-        le.setLocalDate(LocalDate.parse(d));
-        return le;
+    public LedgerEntry createLedgerEntry(String date, String description, int change) {
+        return new LedgerEntry(date, description, change);
     }
 
     public String format(String cur, String loc, LedgerEntry[] entries) {
@@ -111,7 +107,7 @@ public class Ledger {
                 } else {
                     amount = curSymb + amount + decSep + parts[1];
                 }
-                
+
 
                 if (e.getChange() < 0 && loc.equals("en-US")) {
                     amount = "(" + amount + ")";
@@ -122,7 +118,7 @@ public class Ledger {
                 } else {
                     amount = amount + " ";
                 }
-                
+
                 s = s + "\n";
                 s = s + String.format("%s | %-25s | %13s",
                         date,
@@ -136,32 +132,26 @@ public class Ledger {
     }
 
     public static class LedgerEntry {
-        LocalDate localDate;
-        String description;
-        double change;
+        private final LocalDate localDate;
+        private final String description;
+        private final double change;
+
+        public LedgerEntry(String date, String description, double change) {
+            this.localDate = LocalDate.parse(date);
+            this.description = description;
+            this.change = change;
+        }
 
         public LocalDate getLocalDate() {
             return localDate;
-        }
-
-        public void setLocalDate(LocalDate localDate) {
-            this.localDate = localDate;
         }
 
         public String getDescription() {
             return description;
         }
 
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
         public double getChange() {
             return change;
-        }
-
-        public void setChange(double change) {
-            this.change = change;
         }
     }
 
