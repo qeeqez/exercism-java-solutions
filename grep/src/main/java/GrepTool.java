@@ -16,7 +16,7 @@ class GrepTool {
         });
 
         // remove last new line
-        if(!output.isEmpty()) {
+        if (!output.isEmpty()) {
             output.setLength(output.length() - 1);
         }
 
@@ -54,12 +54,13 @@ class GrepTool {
             line = line.toLowerCase();
             pattern = pattern.toLowerCase();
         }
-        if (settings.isMatchInvert()) {
-            pattern = new StringBuilder(pattern).reverse().toString();
-        }
 
-        if (settings.isMatchEntireLine()) {
+        if (settings.isMatchEntireLine() && settings.isMatchInvert()) {
+            return !line.equals(pattern);
+        } else if (settings.isMatchEntireLine()) {
             return line.equals(pattern);
+        } else if (settings.isMatchInvert()) {
+            return !line.contains(pattern);
         } else {
             return line.contains(pattern);
         }
