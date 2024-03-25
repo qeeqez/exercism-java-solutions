@@ -1,11 +1,31 @@
+import java.util.*;
+
 class BracketChecker {
 
+    private final String expression;
+
+    private final Map<Character, Character> brackets = Map.of(
+            '[', ']',
+            '{', '}',
+            '(', ')'
+    );
+
     BracketChecker(String expression) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.expression = expression;
     }
 
     boolean areBracketsMatchedAndNestedCorrectly() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        Stack<Character> closingBrackets = new Stack<>();
+        for (char c : expression.toCharArray()) {
+            if (brackets.containsKey(c)) {
+                closingBrackets.push(brackets.get(c));
+            } else if (brackets.containsValue(c)) {
+                if (closingBrackets.isEmpty() || closingBrackets.pop() != c) {
+                    return false;
+                }
+            }
+        }
+        return closingBrackets.isEmpty();
     }
 
 }
