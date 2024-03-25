@@ -1,5 +1,18 @@
 public class SquareRoot {
     public int squareRoot(int radicand) {
-        return (int) Math.sqrt(radicand);
+        int c = 0;
+        int d = Integer.MAX_VALUE / 2 + 1;
+
+        while (d != 0) {
+            if (radicand >= c + d) {
+                radicand -= c + d;
+                c = (c >> 1) + d;
+            } else {
+                c >>= 1;
+            }
+            d >>= 2;
+        }
+
+        return c;
     }
 }
