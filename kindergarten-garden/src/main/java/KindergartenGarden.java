@@ -1,13 +1,27 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class KindergartenGarden {
 
+    private final List<String> garden;
+
     KindergartenGarden(String garden) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.garden = Arrays.stream(garden.split("\n")).toList();
     }
 
     List<Plant> getPlantsOfStudent(String student) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        List<Plant> output = new ArrayList<>();
+
+        int studentIndex = Student.getStudentIndex(student);
+        int studentPlantIndex = studentIndex * 2;
+
+        garden.forEach(line -> {
+            output.add(Plant.getPlant(line.charAt(studentPlantIndex)));
+            output.add(Plant.getPlant(line.charAt(studentPlantIndex + 1)));
+        });
+
+        return output;
     }
 
 }
