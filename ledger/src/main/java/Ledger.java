@@ -11,84 +11,83 @@ public class Ledger {
     public String format(String currency, String locale, LedgerEntry[] entries) {
         LedgerLocale settings = new LedgerLocale(currency, locale);
 
-        String output = settings.getHeader();
+        if (entries.length == 0) return settings.getHeader();
 
-        if (entries.length > 0) {
-            List<LedgerEntry> neg = new ArrayList<>();
-            List<LedgerEntry> pos = new ArrayList<>();
-            for (int i = 0; i < entries.length; i++) {
-                LedgerEntry e = entries[i];
-                if (e.getChange() >= 0) {
-                    pos.add(e);
-                } else {
-                    neg.add(e);
-                }
+        StringBuilder output = new StringBuilder(settings.getHeader());
+
+        List<LedgerEntry> neg = new ArrayList<>();
+        List<LedgerEntry> pos = new ArrayList<>();
+        for (int i = 0; i < entries.length; i++) {
+            LedgerEntry e = entries[i];
+            if (e.getChange() >= 0) {
+                pos.add(e);
+            } else {
+                neg.add(e);
             }
-
-            neg.sort((o1, o2) -> o1.getLocalDate().compareTo(o2.getLocalDate()));
-            pos.sort((o1, o2) -> o1.getLocalDate().compareTo(o2.getLocalDate()));
-
-            List<LedgerEntry> all = new ArrayList<>();
-            all.addAll(neg);
-            all.addAll(pos);
-
-            for (int i = 0; i < all.size(); i++) {
-                LedgerEntry e = all.get(i);
-
-                String date = e.getLocalDate().format(DateTimeFormatter.ofPattern(settings.getDatePattern()));
-
-                String desc = e.getDescription();
-                if (desc.length() > 25) {
-                    desc = desc.substring(0, 22);
-                    desc = desc + "...";
-                }
-
-                String converted = null;
-                if (e.getChange() < 0) {
-                    converted = String.format("%.02f", (e.getChange() / 100) * -1);
-                } else {
-                    converted = String.format("%.02f", e.getChange() / 100);
-                }
-
-                String[] parts = converted.split("\\.");
-                String amount = "";
-                int count = 1;
-                for (int ind = parts[0].length() - 1; ind >= 0; ind--) {
-                    if (((count % 3) == 0) && ind > 0) {
-                        amount = settings.getThousandSeparator() + parts[0].charAt(ind) + amount;
-                    } else {
-                        amount = parts[0].charAt(ind) + amount;
-                    }
-                    count++;
-                }
-
-                if (locale.equals("nl-NL")) {
-                    amount = settings.getCurrencySymbol() + " " + amount + settings.getDecimalSeparator() + parts[1];
-                } else {
-                    amount = settings.getCurrencySymbol() + amount + settings.getDecimalSeparator() + parts[1];
-                }
-
-
-                if (e.getChange() < 0 && locale.equals("en-US")) {
-                    amount = "(" + amount + ")";
-                } else if (e.getChange() < 0 && locale.equals("nl-NL")) {
-                    amount = settings.getCurrencySymbol() + " -" + amount.replace(settings.getCurrencySymbol(), "").trim() + " ";
-                } else if (locale.equals("nl-NL")) {
-                    amount = " " + amount + " ";
-                } else {
-                    amount = amount + " ";
-                }
-
-                output = output + "\n";
-                output = output + String.format("%s | %-25s | %13s",
-                        date,
-                        desc,
-                        amount);
-            }
-
         }
 
-        return output;
+        neg.sort((o1, o2) -> o1.getLocalDate().compareTo(o2.getLocalDate()));
+        pos.sort((o1, o2) -> o1.getLocalDate().compareTo(o2.getLocalDate()));
+
+        List<LedgerEntry> all = new ArrayList<>();
+        all.addAll(neg);
+        all.addAll(pos);
+
+        for (int i = 0; i < all.size(); i++) {
+            LedgerEntry e = all.get(i);
+
+            String date = e.getLocalDate().format(DateTimeFormatter.ofPattern(settings.getDatePattern()));
+
+            String desc = e.getDescription();
+            if (desc.length() > 25) {
+                desc = desc.substring(0, 22);
+                desc = desc + "...";
+            }
+
+            String converted = null;
+            if (e.getChange() < 0) {
+                converted = String.format("%.02f", (e.getChange() / 100) * -1);
+            } else {
+                converted = String.format("%.02f", e.getChange() / 100);
+            }
+
+            String[] parts = converted.split("\\.");
+            String amount = "";
+            int count = 1;
+            for (int ind = parts[0].length() - 1; ind >= 0; ind--) {
+                if (((count % 3) == 0) && ind > 0) {
+                    amount = settings.getThousandSeparator() + parts[0].charAt(ind) + amount;
+                } else {
+                    amount = parts[0].charAt(ind) + amount;
+                }
+                count++;
+            }
+
+            if (locale.equals("nl-NL")) {
+                amount = settings.getCurrencySymbol() + " " + amount + settings.getDecimalSeparator() + parts[1];
+            } else {
+                amount = settings.getCurrencySymbol() + amount + settings.getDecimalSeparator() + parts[1];
+            }
+
+
+            if (e.getChange() < 0 && locale.equals("en-US")) {
+                amount = "(" + amount + ")";
+            } else if (e.getChange() < 0 && locale.equals("nl-NL")) {
+                amount = settings.getCurrencySymbol() + " -" + amount.replace(settings.getCurrencySymbol(), "").trim() + " ";
+            } else if (locale.equals("nl-NL")) {
+                amount = " " + amount + " ";
+            } else {
+                amount = amount + " ";
+            }
+
+            output.append("\n");
+            output.append(String.format("%s | %-25s | %13s",
+                    date,
+                    desc,
+                    amount));
+        }
+
+        return output.toString();
     }
 
     public static class LedgerEntry {
