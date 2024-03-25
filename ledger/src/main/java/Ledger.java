@@ -8,50 +8,10 @@ public class Ledger {
         return new LedgerEntry(date, description, change);
     }
 
-    public String format(String cur, String loc, LedgerEntry[] entries) {
-        String s = null;
-        String header = null;
-        String curSymb = null;
-        String datPat = null;
-        String decSep = null;
-        String thSep = null;
-        if (!cur.equals("USD") && !cur.equals("EUR")) {
-            throw new IllegalArgumentException("Invalid currency");
-        } else if (!loc.equals("en-US") && !loc.equals("nl-NL")) {
-            throw new IllegalArgumentException("Invalid locale");
-        } else {
-            if (cur.equals("USD")) {
-                if (loc.equals("en-US")) {
-                    curSymb = "$";
-                    datPat = "MM/dd/yyyy";
-                    decSep = ".";
-                    thSep = ",";
-                    header = "Date       | Description               | Change       ";
-                } else if (loc.equals("nl-NL")) {
-                    curSymb = "$";
-                    datPat = "dd/MM/yyyy";
-                    decSep = ",";
-                    thSep = ".";
-                    header = "Datum      | Omschrijving              | Verandering  ";
-                }
-            } else if (cur.equals("EUR")) {
-                if (loc.equals("en-US")) {
-                    curSymb = "€";
-                    datPat = "MM/dd/yyyy";
-                    decSep = ".";
-                    thSep = ",";
-                    header = "Date       | Description               | Change       ";
-                } else if (loc.equals("nl-NL")) {
-                    curSymb = "€";
-                    datPat = "dd/MM/yyyy";
-                    decSep = ",";
-                    thSep = ".";
-                    header = "Datum      | Omschrijving              | Verandering  ";
-                }
-            }
-        }
+    public String format(String currency, String locale, LedgerEntry[] entries) {
+        LedgerLocale settings = new LedgerLocale(currency, locale);
 
-        s = header;
+        String output = settings.getHeader();
 
         if (entries.length > 0) {
             List<LedgerEntry> neg = new ArrayList<>();
@@ -75,7 +35,7 @@ public class Ledger {
             for (int i = 0; i < all.size(); i++) {
                 LedgerEntry e = all.get(i);
 
-                String date = e.getLocalDate().format(DateTimeFormatter.ofPattern(datPat));
+                String date = e.getLocalDate().format(DateTimeFormatter.ofPattern(settings.getDatePattern()));
 
                 String desc = e.getDescription();
                 if (desc.length() > 25) {
@@ -95,32 +55,32 @@ public class Ledger {
                 int count = 1;
                 for (int ind = parts[0].length() - 1; ind >= 0; ind--) {
                     if (((count % 3) == 0) && ind > 0) {
-                        amount = thSep + parts[0].charAt(ind) + amount;
+                        amount = settings.getThousandSeparator() + parts[0].charAt(ind) + amount;
                     } else {
                         amount = parts[0].charAt(ind) + amount;
                     }
                     count++;
                 }
 
-                if (loc.equals("nl-NL")) {
-                    amount = curSymb + " " + amount + decSep + parts[1];
+                if (locale.equals("nl-NL")) {
+                    amount = settings.getCurrencySymbol() + " " + amount + settings.getDecimalSeparator() + parts[1];
                 } else {
-                    amount = curSymb + amount + decSep + parts[1];
+                    amount = settings.getCurrencySymbol() + amount + settings.getDecimalSeparator() + parts[1];
                 }
 
 
-                if (e.getChange() < 0 && loc.equals("en-US")) {
+                if (e.getChange() < 0 && locale.equals("en-US")) {
                     amount = "(" + amount + ")";
-                } else if (e.getChange() < 0 && loc.equals("nl-NL")) {
-                    amount = curSymb + " -" + amount.replace(curSymb, "").trim() + " ";
-                } else if (loc.equals("nl-NL")) {
+                } else if (e.getChange() < 0 && locale.equals("nl-NL")) {
+                    amount = settings.getCurrencySymbol() + " -" + amount.replace(settings.getCurrencySymbol(), "").trim() + " ";
+                } else if (locale.equals("nl-NL")) {
                     amount = " " + amount + " ";
                 } else {
                     amount = amount + " ";
                 }
 
-                s = s + "\n";
-                s = s + String.format("%s | %-25s | %13s",
+                output = output + "\n";
+                output = output + String.format("%s | %-25s | %13s",
                         date,
                         desc,
                         amount);
@@ -128,7 +88,7 @@ public class Ledger {
 
         }
 
-        return s;
+        return output;
     }
 
     public static class LedgerEntry {
@@ -152,6 +112,65 @@ public class Ledger {
 
         public double getChange() {
             return change;
+        }
+    }
+
+    public static class LedgerLocale {
+        private String currencySymbol = "$";
+        private String datePattern = "MM/dd/yyyy";
+        private String decimalSeparator = ".";
+        private String thousandSeparator = ",";
+        private String header = "Date       | Description               | Change       ";
+
+        public LedgerLocale(String currency, String locale) {
+            setCurrency(currency);
+            setLocale(locale);
+        }
+
+        private void setCurrency(String currency) {
+            currencySymbol = switch (currency) {
+                case "USD" -> "$";
+                case "EUR" -> "€";
+                default -> throw new IllegalArgumentException("Invalid currency");
+            };
+        }
+
+        private void setLocale(String locale) {
+            switch (locale) {
+                case "en-US" -> {
+                    datePattern = "MM/dd/yyyy";
+                    decimalSeparator = ".";
+                    thousandSeparator = ",";
+                    header = "Date       | Description               | Change       ";
+                }
+                case "nl-NL" -> {
+                    datePattern = "dd/MM/yyyy";
+                    decimalSeparator = ",";
+                    thousandSeparator = ".";
+                    header = "Datum      | Omschrijving              | Verandering  ";
+                }
+                default -> throw new IllegalArgumentException("Invalid locale");
+            }
+        }
+
+        public String getCurrencySymbol() {
+            return currencySymbol;
+        }
+
+        public String getDatePattern() {
+            return datePattern;
+        }
+
+        public String getDecimalSeparator() {
+            return decimalSeparator;
+        }
+
+        public String getThousandSeparator() {
+            return thousandSeparator;
+        }
+
+        public String getHeader() {
+            return header;
         }
     }
 
