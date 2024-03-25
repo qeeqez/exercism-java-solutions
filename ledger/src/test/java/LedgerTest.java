@@ -16,7 +16,7 @@ public class LedgerTest {
     private Ledger ledger;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         ledger = new Ledger();
     }
 
@@ -52,9 +52,10 @@ public class LedgerTest {
 
         String actual = ledger.format(USD_CURRENCY, US_LOCALE, entries);
 
-        String expected = "Date       | Description               | Change       \n"
-                        + "01/01/2015 | Buy present               |      ($10.00)\n"
-                        + "01/02/2015 | Get present               |       $10.00 ";
+        String expected = """
+                Date       | Description               | Change      \s
+                01/01/2015 | Buy present               |      ($10.00)
+                01/02/2015 | Get present               |       $10.00\s""";
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -68,9 +69,10 @@ public class LedgerTest {
 
         String actual = ledger.format(USD_CURRENCY, US_LOCALE, entries);
 
-        String expected = "Date       | Description               | Change       \n"
-                        + "01/01/2015 | Buy present               |      ($10.00)\n"
-                        + "01/01/2015 | Get present               |       $10.00 ";
+        String expected = """
+                Date       | Description               | Change      \s
+                01/01/2015 | Buy present               |      ($10.00)
+                01/01/2015 | Get present               |       $10.00\s""";
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -85,10 +87,11 @@ public class LedgerTest {
 
         String actual = ledger.format(USD_CURRENCY, US_LOCALE, entries);
 
-        String expected = "Date       | Description               | Change       \n"
-                        + "01/01/2015 | Something                 |       ($0.01)\n"
-                        + "01/01/2015 | Something                 |        $0.00 \n"
-                        + "01/01/2015 | Something                 |        $0.01 ";
+        String expected = """
+                Date       | Description               | Change      \s
+                01/01/2015 | Something                 |       ($0.01)
+                01/01/2015 | Something                 |        $0.00\s
+                01/01/2015 | Something                 |        $0.01\s""";
         
         assertThat(actual).isEqualTo(expected);
     }
