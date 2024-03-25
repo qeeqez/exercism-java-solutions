@@ -20,13 +20,31 @@ class VariableLengthQuantity {
             int j = Math.max(0, i - 7);
             long sevenBits = Long.parseLong(binary.substring(j, i), 2);
             if (i != binary.length()) sevenBits += 1 << 7;
-            output.addFirst("0x" + Long.toHexString(sevenBits));
+            output.addFirst(binaryToHex(sevenBits));
         }
 
         return output;
     }
 
     List<String> decode(List<Long> bytes) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        if (bytes.getLast() >= 1 << 7) {
+            throw new IllegalArgumentException("Invalid variable-length quantity encoding");
+        }
+
+        List<String> result = new LinkedList<>();
+
+        long value = 0;
+        for (Long b : bytes) {
+            value = (value << 7) | (b & 0x7F);
+            if ((b & 0x80) == 0) {
+                result.add(binaryToHex(value));
+                value = 0;
+            }
+        }
+        return result;
+    }
+
+    private String binaryToHex(long binary) {
+        return "0x" + Long.toHexString(binary);
     }
 }

@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -160,7 +159,6 @@ public class VariableLengthQuantityTest {
         assertThat(variableLengthQuantity.encode(numbers)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDecodeOneByte() {
         List<String> expected = List.of("0x7f");
@@ -169,7 +167,6 @@ public class VariableLengthQuantityTest {
         assertThat(variableLengthQuantity.decode(bytes)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDecodeTwoBytes() {
         List<String> expected = List.of("0x2000");
@@ -178,7 +175,6 @@ public class VariableLengthQuantityTest {
         assertThat(variableLengthQuantity.decode(bytes)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDecodeThreeBytes() {
         List<String> expected = List.of("0x1fffff");
@@ -187,7 +183,6 @@ public class VariableLengthQuantityTest {
         assertThat(variableLengthQuantity.decode(bytes)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDecodeFourBytes() {
         List<String> expected = List.of("0x200000");
@@ -196,7 +191,6 @@ public class VariableLengthQuantityTest {
         assertThat(variableLengthQuantity.decode(bytes)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDecodeMaximum32BitInteger() {
         List<String> expected = List.of("0xffffffff");
@@ -205,7 +199,6 @@ public class VariableLengthQuantityTest {
         assertThat(variableLengthQuantity.decode(bytes)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCannotDecodeIncompleteSequence() {
         List<Long> bytes = List.of(0xffL);
@@ -215,7 +208,6 @@ public class VariableLengthQuantityTest {
                 .withMessage("Invalid variable-length quantity encoding");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCannotDecodeIncompleteSequenceEvenIfValueIsZero() {
         List<Long> bytes = List.of(0x80L);
@@ -225,7 +217,6 @@ public class VariableLengthQuantityTest {
                 .withMessage("Invalid variable-length quantity encoding");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDecodeMultipleBytes() {
         List<String> expected = Arrays.asList("0x2000", "0x123456",
