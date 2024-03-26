@@ -29,6 +29,20 @@ public class User {
         return unmodifiableList(owedBy);
     }
 
+    public void addOwes(Iou iou) {
+        owes.add(iou);
+    }
+
+    public void addOwedBy(Iou iou) {
+        owedBy.add(iou);
+    }
+
+    public double getBalance() {
+        Double owes = owes().stream().mapToDouble(iou -> iou.amount).sum();
+        Double owedBy = owedBy().stream().mapToDouble(iou -> iou.amount).sum();
+        return owedBy - owes;
+    }
+
     public static Builder builder() {
         return new Builder();
     }

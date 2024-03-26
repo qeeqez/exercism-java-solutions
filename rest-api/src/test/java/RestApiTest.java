@@ -16,7 +16,6 @@ public class RestApiTest {
         assertThat(new RestApi().get(url)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void addUser() {
         String expected = new JSONObject()
@@ -31,7 +30,6 @@ public class RestApiTest {
         assertThat(new RestApi().post(url, payload)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void getSingleUser() {
         String expected = new JSONObject()
@@ -92,7 +90,6 @@ public class RestApiTest {
                 .post(url, payload)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void borrowerHasNegativeBalance() {
         String expected =
