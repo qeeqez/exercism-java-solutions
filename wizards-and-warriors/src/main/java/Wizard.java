@@ -7,10 +7,16 @@ class Wizard extends Fighter {
     }
 
     @Override
-    int damagePoints(Fighter warrior) {
+    int getDamagePoints(Fighter warrior) {
         return isSpellPrepared ? 12 : 3;
     }
 
+    @Override
+    boolean isVulnerable() {
+        return super.isVulnerable();
+    }
+
+    @SuppressWarnings("unused")
     void prepareSpell() {
         isSpellPrepared = true;
         vulnerable = false;

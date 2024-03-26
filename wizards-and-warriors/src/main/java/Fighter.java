@@ -1,4 +1,4 @@
-abstract class Fighter {
+class Fighter {
 
     boolean vulnerable = false;
 
@@ -6,7 +6,10 @@ abstract class Fighter {
         return vulnerable;
     }
 
-    abstract int damagePoints(Fighter fighter);
+    @SuppressWarnings("unused")
+    int getDamagePoints(Fighter fighter) {
+        return 1;
+    }
 
     @Override
     public String toString() {
