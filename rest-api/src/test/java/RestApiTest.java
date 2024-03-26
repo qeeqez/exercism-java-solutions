@@ -1,6 +1,5 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -172,7 +171,6 @@ public class RestApiTest {
                 .post(url, payload)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void lenderOwesBorrower() {
         String expected =
@@ -210,7 +208,6 @@ public class RestApiTest {
                 .post(url, payload)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void lenderOwesBorrowerLessThanNewLoan() {
         String expected =
@@ -248,7 +245,6 @@ public class RestApiTest {
                 .post(url, payload)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void lenderOwesBorrowerSameAsNewLoan() {
         String expected =
