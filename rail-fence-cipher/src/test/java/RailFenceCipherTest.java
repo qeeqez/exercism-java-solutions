@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,7 +13,6 @@ public class RailFenceCipherTest {
             .isEqualTo("XXXXXXXXXOOOOOOOOO");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void encodeWithThreeRails() {
         railFenceCipher = new RailFenceCipher(3);
@@ -22,7 +20,6 @@ public class RailFenceCipherTest {
             .isEqualTo("WECRLTEERDSOEEFEAOCAIVDEN");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void encodeWithEndingInTheMiddle() {
         railFenceCipher = new RailFenceCipher(4);
@@ -30,7 +27,6 @@ public class RailFenceCipherTest {
             .isEqualTo("ESXIEECSR");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void decodeWithThreeRails() {
         railFenceCipher = new RailFenceCipher(3);
@@ -38,7 +34,6 @@ public class RailFenceCipherTest {
             .isEqualTo("THEDEVILISINTHEDETAILS");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void decodeWithFiveRails() {
         railFenceCipher = new RailFenceCipher(5);
@@ -46,7 +41,6 @@ public class RailFenceCipherTest {
             .isEqualTo("EXERCISMISAWESOME");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void decodeWithSixRails() {
         railFenceCipher = new RailFenceCipher(6);
