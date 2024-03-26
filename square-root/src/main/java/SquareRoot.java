@@ -15,4 +15,13 @@ public class SquareRoot {
 
         return c;
     }
+
+    @SuppressWarnings("unused")
+    public float squareRootApproximate(float z) {
+        int bits = Float.floatToIntBits(z);
+        bits -= 1 << 23;
+        bits >>= 1;
+        bits += 1 << 29;
+        return Float.intBitsToFloat(bits);
+    }
 }
