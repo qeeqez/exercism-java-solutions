@@ -130,7 +130,6 @@ public class RestApiTest {
                 .post(url, payload)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void lenderHasNegativeBalance() {
         String expected =

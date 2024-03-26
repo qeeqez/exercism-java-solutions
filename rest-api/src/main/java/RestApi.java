@@ -47,7 +47,8 @@ class RestApi {
                 lenderUser.addOwedBy(new Iou(borrower, amount));
                 borrowerUser.addOwes(new Iou(lender, amount));
 
-                yield UserMapper.usersToJson(users).toString();
+                List<User> output = List.of(lenderUser, borrowerUser);
+                yield UserMapper.usersToJson(output).toString();
             }
             default -> throw new IllegalStateException("Unexpected url: " + url);
         };
