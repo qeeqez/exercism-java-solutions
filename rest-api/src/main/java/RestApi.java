@@ -3,6 +3,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 class RestApi {
@@ -47,7 +48,8 @@ class RestApi {
                 lenderUser.addOwedBy(new Iou(borrower, amount));
                 borrowerUser.addOwes(new Iou(lender, amount));
 
-                List<User> output = List.of(lenderUser, borrowerUser);
+                List<User> output = new ArrayList<>(List.of(lenderUser, borrowerUser));
+                output.sort(Comparator.comparing(User::name));
                 yield UserMapper.usersToJson(output).toString();
             }
             default -> throw new IllegalStateException("Unexpected url: " + url);
