@@ -157,7 +157,6 @@ public class StateOfTicTacToeTest {
         ).isEqualTo(GameState.WIN);
     }
     
-    @Disabled("Remove to run test")
     @Test
     public void testDraw() {
 
@@ -166,7 +165,6 @@ public class StateOfTicTacToeTest {
         ).isEqualTo(GameState.DRAW);
     }
     
-    @Disabled("Remove to run test")
     @Test
     public void testAnotherDraw() {
         
@@ -175,7 +173,6 @@ public class StateOfTicTacToeTest {
         ).isEqualTo(GameState.DRAW);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testOngoingGameOneMoveIn() {
 
@@ -184,7 +181,6 @@ public class StateOfTicTacToeTest {
         ).isEqualTo(GameState.ONGOING);
     }
     
-    @Disabled("Remove to run test")
     @Test
     public void testOngoingGameTwoMovesIn() {
 
@@ -193,7 +189,6 @@ public class StateOfTicTacToeTest {
         ).isEqualTo(GameState.ONGOING);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testOngoingGameFiveMovesIn() {
 
@@ -202,7 +197,14 @@ public class StateOfTicTacToeTest {
         ).isEqualTo(GameState.ONGOING);
     }
 
-    @Disabled("Remove to run test")
+    @Test
+    public void testOngoingGameOnlyFirstHasEmpty() {
+
+        assertThat(
+                stateOfTicTacToe.determineState(new String[]{"X  ", "0XO", "OX0"})
+        ).isEqualTo(GameState.ONGOING);
+    }
+
     @Test
     public void testInvalidBoardXWentTwice() {
 
@@ -211,7 +213,6 @@ public class StateOfTicTacToeTest {
             .withMessage("Wrong turn order: X went twice");
     }
     
-    @Disabled("Remove to run test")
     @Test
     public void testInvalidBoardOStarted() {
 
@@ -220,7 +221,6 @@ public class StateOfTicTacToeTest {
             .withMessage("Wrong turn order: O started");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testInvalidBoard() {
 
@@ -229,7 +229,6 @@ public class StateOfTicTacToeTest {
             .withMessage("Impossible board: game should have ended after the game was won");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testInvalidBoardPlayersKeptPlayingAfterAWin() {
 
