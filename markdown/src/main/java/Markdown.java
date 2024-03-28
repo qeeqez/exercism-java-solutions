@@ -24,7 +24,7 @@ class Markdown {
     }
 
     private String parseHeader(String markdown) {
-        int count = markdown.lastIndexOf("#") + 1;
+        int count = markdown.lastIndexOf("#", 7) + 1;
         if (count > 6) return parseParagraph(markdown);
         return "<h" + count + ">" + markdown.substring(count + 1) + "</h" + count + ">";
     }

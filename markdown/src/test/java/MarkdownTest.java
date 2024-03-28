@@ -54,6 +54,14 @@ public class MarkdownTest {
     }
 
     @Test
+    public void withH1HeaderLevelSmall() {
+        String input = "# h1";
+        String expected = "<h1>h1</h1>";
+
+        assertThat(markdown.parse(input)).isEqualTo(expected);
+    }
+
+    @Test
     public void withH2HeaderLevel() {
         String input = "## This will be an h2";
         String expected = "<h2>This will be an h2</h2>";
@@ -77,7 +85,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void withH5HeaderLevel() {
         String input = "##### This will be an h5";
@@ -86,7 +93,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void withH6HeaderLevel() {
         String input = "###### This will be an h6";
@@ -95,7 +101,14 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+    @Test
+    public void withAdditionalHeaderLevel() {
+        String input = "# This will be an h1 #";
+        String expected = "<h1>This will be an h1 #</h1>";
+
+        assertThat(markdown.parse(input)).isEqualTo(expected);
+    }
+
     @Test
     public void h7HeaderLevelIsAParagraph() {
         String input = "####### This will not be an h7";
@@ -104,7 +117,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void unorderedLists() {
         String input = "* Item 1\n* Item 2";
