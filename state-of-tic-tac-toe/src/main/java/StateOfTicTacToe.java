@@ -23,16 +23,4 @@ class StateOfTicTacToe {
     boolean isWin(String row) {
         return row.equals("XXX") || row.equals("OOO");
     }
-//
-//    boolean columnWin(String column) {
-//
-//    }
-//
-//    private boolean isWin(char a, char b, char c) {
-//        return isTicTac(a) && a == b && b == c;
-//    }
-//
-//    private boolean isTicTac(char c) {
-//        return c == 'X' || c == '0';
-//    }
 }
