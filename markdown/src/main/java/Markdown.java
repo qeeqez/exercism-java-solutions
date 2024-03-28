@@ -2,42 +2,39 @@ class Markdown {
 
     String parse(String markdown) {
         String[] lines = markdown.split("\n");
-        String result = "";
+        StringBuilder result = new StringBuilder();
         boolean activeList = false;
 
-        for (int i = 0; i < lines.length; i++) {
+        for (String line : lines) {
 
-            String theLine = parseHeader(lines[i]);
+            String currentLine = parseHeader(line);
 
-            if (theLine == null) {
-              theLine = parseListItem(lines[i]);
+            if (currentLine == null) {
+                currentLine = parseListItem(line);
             }
 
-            if (theLine == null) 
-            {
-                theLine = parseParagraph(lines[i]);
+            if (currentLine == null) {
+                currentLine = parseParagraph(line);
             }
 
-            if (theLine.matches("(<li>).*") && !theLine.matches("(<h).*") && !theLine.matches("(<p>).*") && !activeList) {
+            if (currentLine.matches("(<li>).*") && !currentLine.matches("(<h).*") && !currentLine.matches("(<p>).*") && !activeList) {
                 activeList = true;
-              result = result + "<ul>";
-                result = result + theLine;
-            } 
-
-            else if (!theLine.matches("(<li>).*") && activeList) {
+                result.append("<ul>");
+                result.append(currentLine);
+            } else if (!currentLine.matches("(<li>).*") && activeList) {
                 activeList = false;
-                result = result + "</ul>";
-                result = result + theLine;
+                result.append("</ul>");
+                result.append(currentLine);
             } else {
-              result = result + theLine;
+                result.append(currentLine);
             }
         }
 
         if (activeList) {
-            result = result + "</ul>";
+            result.append("</ul>");
         }
 
-        return result;
+        return result.toString();
     }
 
     private String parseHeader(String markdown) {
@@ -51,7 +48,7 @@ class Markdown {
         if (count > 6) { return "<p>" + markdown + "</p>"; }
         if (count == 0) { return null; }
 
-        return "<h" + Integer.toString(count) + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count)+ ">";
+        return "<h" + count + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count)+ ">";
     }
 
     private String parseListItem(String markdown) {
