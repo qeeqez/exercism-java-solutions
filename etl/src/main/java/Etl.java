@@ -1,8 +1,16 @@
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 class Etl {
     Map<String, Integer> transform(Map<Integer, List<String>> old) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return old
+                .entrySet()
+                .stream()
+                .flatMap(val -> val.getValue().stream()
+                        .map(String::toLowerCase)
+                        .map(letter -> Map.entry(letter, val.getKey()))
+                )
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }

@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,19 +9,20 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
+@SuppressWarnings({"ArraysAsListWithZeroOrOneArgument", "ExtractMethodRecommender"})
 public class EtlTest {
     private final Etl etl = new Etl();
 
     @Test
     public void testTransformOneValue() {
-        Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
+        Map<Integer, List<String>> old = new HashMap<>() {
             {
                 put(1, Arrays.asList("A"));
             }
         };
         old = Collections.unmodifiableMap(old);
 
-        Map<String, Integer> expected = new HashMap<String, Integer>() {
+        Map<String, Integer> expected = new HashMap<>() {
             {
                 put("a", 1);
             }
@@ -32,17 +32,16 @@ public class EtlTest {
         assertThat(etl.transform(old)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testTransformMoreValues() {
-        Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
+        Map<Integer, List<String>> old = new HashMap<>() {
             {
                 put(1, Arrays.asList("A", "E", "I", "O", "U"));
             }
         };
         old = Collections.unmodifiableMap(old);
 
-        Map<String, Integer> expected = new HashMap<String, Integer>() {
+        Map<String, Integer> expected = new HashMap<>() {
             {
                 put("a", 1);
                 put("e", 1);
@@ -56,10 +55,9 @@ public class EtlTest {
         assertThat(etl.transform(old)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testMoreKeys() {
-        Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
+        Map<Integer, List<String>> old = new HashMap<>() {
             {
                 put(1, Arrays.asList("A", "E"));
                 put(2, Arrays.asList("D", "G"));
@@ -67,7 +65,7 @@ public class EtlTest {
         };
         old = Collections.unmodifiableMap(old);
 
-        Map<String, Integer> expected = new HashMap<String, Integer>() {
+        Map<String, Integer> expected = new HashMap<>() {
             {
                 put("a", 1);
                 put("e", 1);
@@ -80,10 +78,9 @@ public class EtlTest {
         assertThat(etl.transform(old)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testFullDataset() {
-        Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
+        Map<Integer, List<String>> old = new HashMap<>() {
             {
                 put(1, Arrays.asList("A", "E", "I", "O", "U", "L", "N", "R", "S", "T"));
                 put(2, Arrays.asList("D", "G"));
@@ -96,7 +93,7 @@ public class EtlTest {
         };
         old = Collections.unmodifiableMap(old);
 
-        Map<String, Integer> expected = new HashMap<String, Integer>() {
+        Map<String, Integer> expected = new HashMap<>() {
             {
                 put("a", 1);
                 put("b", 3);
