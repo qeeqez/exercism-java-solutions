@@ -21,7 +21,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void italics() {
         String input = "_This will be italic_";
@@ -30,7 +29,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void boldText() {
         String input = "__This will be bold__";
@@ -39,7 +37,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void normalItalicsAndBoldText() {
         String input = "This will _be_ __mixed__";
@@ -48,7 +45,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void withH1HeaderLevel() {
         String input = "# This will be an h1";
@@ -57,7 +53,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void withH2HeaderLevel() {
         String input = "## This will be an h2";
@@ -66,7 +61,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void withH3HeaderLevel() {
         String input = "### This will be an h3";
@@ -75,7 +69,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void withH4HeaderLevel() {
         String input = "#### This will be an h4";

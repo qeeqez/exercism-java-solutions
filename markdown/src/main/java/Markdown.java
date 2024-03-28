@@ -7,31 +7,17 @@ class Markdown {
 
         for (String line : lines) {
 
-            String currentLine = parseHeader(line);
+            boolean isList = isListItem(line);
 
-            if (currentLine == null) {
-                currentLine = parseListItem(line);
-            }
-
-            if (currentLine == null) {
-                currentLine = parseParagraph(line);
-            }
-
-            if (currentLine.matches("(<li>).*") && !currentLine.matches("(<h).*") && !currentLine.matches("(<p>).*") && !activeList) {
-                activeList = true;
-                result.append("<ul>");
-                result.append(currentLine);
-            } else if (!currentLine.matches("(<li>).*") && activeList) {
-                activeList = false;
-                result.append("</ul>");
-                result.append(currentLine);
+            if (isHeader(line)) {
+                line = parseHeader(line);
+            } else if (isList) {
+                line = parseListItem(line);
             } else {
-                result.append(currentLine);
+                line = parseParagraph(line);
             }
-        }
 
-        if (activeList) {
-            result.append("</ul>");
+            result.append(line);
         }
 
         return result.toString();
@@ -40,39 +26,53 @@ class Markdown {
     private String parseHeader(String markdown) {
         int count = 0;
 
-        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) 
-        {
+        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) {
             count++;
         }
-        
-        if (count > 6) { return "<p>" + markdown + "</p>"; }
-        if (count == 0) { return null; }
 
-        return "<h" + count + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count)+ ">";
+        if (count > 6) {
+            return "<p>" + markdown + "</p>";
+        }
+        if (count == 0) {
+            return null;
+        }
+
+        return "<h" + count + ">" + markdown.substring(count + 1) + "</h" + count + ">";
     }
 
     private String parseListItem(String markdown) {
-        if (markdown.startsWith("*")) {
-            String skipAsterisk = markdown.substring(2);
-            String listItemString = parseSomeSymbols(skipAsterisk);
-            return "<li>" + listItemString + "</li>";
-        }
+        String skipAsterisk = markdown.substring(2);
+        String listItemString = parseBoldItalic(skipAsterisk);
+        return "<li>" + listItemString + "</li>";
+    }
 
-        return null;
+    private boolean isHeader(String line) {
+        return line.startsWith("#");
+    }
+
+    private boolean isListItem(String line) {
+        return line.startsWith("*");
     }
 
     private String parseParagraph(String markdown) {
-        return "<p>" + parseSomeSymbols(markdown) + "</p>";
+        return "<p>" + parseBoldItalic(markdown) + "</p>";
     }
 
-    private String parseSomeSymbols(String markdown) {
+    private String parseBoldItalic(String markdown) {
+        String output = parseBold(markdown);
+        output = parseItalic(output);
+        return output;
+    }
 
+    private String parseBold(String markdown) {
         String lookingFor = "__(.+)__";
         String update = "<strong>$1</strong>";
-        String workingOn = markdown.replaceAll(lookingFor, update);
+        return markdown.replaceAll(lookingFor, update);
+    }
 
-        lookingFor = "_(.+)_";
-        update = "<em>$1</em>";
-        return workingOn.replaceAll(lookingFor, update);
+    private String parseItalic(String markdown) {
+        String lookingFor = "_(.+)_";
+        String update = "<em>$1</em>";
+        return markdown.replaceAll(lookingFor, update);
     }
 }
