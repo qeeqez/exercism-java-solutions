@@ -9,6 +9,14 @@ class Markdown {
 
             boolean isList = isListItem(line);
 
+            if (isList && !activeList) {
+                activeList = true;
+                result.append("<ul>");
+            } else if (!isList && activeList) {
+                activeList = false;
+                result.append("</ul>");
+            }
+
             if (isHeader(line)) {
                 line = parseHeader(line);
             } else if (isList) {
@@ -19,6 +27,8 @@ class Markdown {
 
             result.append(line);
         }
+
+        if (activeList) result.append("</ul>");
 
         return result.toString();
     }
@@ -48,20 +58,14 @@ class Markdown {
     }
 
     private String parseBoldItalic(String markdown) {
-        String output = parseBold(markdown);
-        output = parseItalic(output);
-        return output;
+        return parseItalic(parseBold(markdown));
     }
 
     private String parseBold(String markdown) {
-        String lookingFor = "__(.+)__";
-        String update = "<strong>$1</strong>";
-        return markdown.replaceAll(lookingFor, update);
+        return markdown.replaceAll("__(.+)__", "<strong>$1</strong>");
     }
 
     private String parseItalic(String markdown) {
-        String lookingFor = "_(.+)_";
-        String update = "<em>$1</em>";
-        return markdown.replaceAll(lookingFor, update);
+        return markdown.replaceAll("_(.+)_", "<em>$1</em>");
     }
 }

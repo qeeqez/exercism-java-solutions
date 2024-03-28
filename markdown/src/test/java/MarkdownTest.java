@@ -125,7 +125,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void aLittleBitOfEverything() {
         String input = "# Header!\n* __Bold Item__\n* _Italic Item_";
@@ -134,7 +133,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void markdownSymbolsInTheHeaderShouldNotBeInterpreted() {
         String input = "# This is a header with # and * in the text";
@@ -143,7 +141,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void markdownSymbolsInTheListItemTextShouldNotBeInterpreted() {
         String input = "* Item 1 with a # in the text\n* Item 2 with * in the text";
@@ -152,7 +149,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void markdownSymbolsInTheParagraphTextShouldNotBeInterpreted() {
         String input = "This is a paragraph with # and * in the text";
@@ -161,7 +157,6 @@ public class MarkdownTest {
         assertThat(markdown.parse(input)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void markdownUnorderedListsCloseProperlyWithPrecedingAndFollowingLines() {
         String input = "# Start a list\n* Item 1\n* Item 2\nEnd a list";
