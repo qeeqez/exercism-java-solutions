@@ -1,29 +1,34 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class BaseConverter {
 
     private int number = 0;
 
-    BaseConverter(int originalBase, int[] originalDigits) {
-        if (originalDigits.length == 0) {
+    BaseConverter(int base, int[] digits) {
+        if (base < 2) throw new IllegalArgumentException("Bases must be at least 2.");
+
+        if (digits.length == 0) {
             number = 0;
-        } else {
-            for (int i = 0; i < originalDigits.length; i++) {
-                number += (int) (originalDigits[i] * Math.pow(originalBase, originalDigits.length - i - 1));
-            }
+            return;
+        }
+
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] < 0) throw new IllegalArgumentException("Digits may not be negative.");
+            if (digits[i] >= base)
+                throw new IllegalArgumentException("All digits must be strictly less than the base.");
+
+            number += (int) (digits[i] * Math.pow(base, digits.length - i - 1));
         }
     }
 
     int[] convertToBase(int newBase) {
-        return convertToBaseList(newBase).stream()
-                .mapToInt(Integer::intValue)
-                .toArray();
+        if (newBase < 2) throw new IllegalArgumentException("Bases must be at least 2.");
+
+        return convertToBaseList(newBase).stream().mapToInt(Integer::intValue).toArray();
     }
 
-
-    List<Integer> convertToBaseList(int newBase) {
+    private List<Integer> convertToBaseList(int newBase) {
         List<Integer> result = new ArrayList<>();
 
         if (number == 0) {
@@ -38,22 +43,5 @@ class BaseConverter {
 
         return result;
     }
-
-//    int convertToAnotherBase(int newBase) {
-//
-//    }
-
-    int convertToBase10(int base, int[] digits) {
-        int size = digits.length;
-        int result = 0;
-        for (int i = 0; i < size; i++) {
-            result += (int) (Math.pow(base, i) * digits[size - i - 1]);
-        }
-        return result;
-    }
-//
-//    int findHighPow(int number, int base) {
-//
-//    }
 
 }

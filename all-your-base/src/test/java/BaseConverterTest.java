@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -102,7 +101,6 @@ public class BaseConverterTest {
                 .containsExactly(4, 2);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testFirstBaseIsOne() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -110,7 +108,6 @@ public class BaseConverterTest {
             .withMessage("Bases must be at least 2.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testFirstBaseIsZero() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -118,7 +115,6 @@ public class BaseConverterTest {
             .withMessage("Bases must be at least 2.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testFirstBaseIsNegative() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -126,7 +122,6 @@ public class BaseConverterTest {
             .withMessage("Bases must be at least 2.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testNegativeDigit() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -134,7 +129,6 @@ public class BaseConverterTest {
             .withMessage("Digits may not be negative.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testInvalidPositiveDigit() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -142,7 +136,6 @@ public class BaseConverterTest {
             .withMessage("All digits must be strictly less than the base.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSecondBaseIsOne() {
         BaseConverter baseConverter =
@@ -153,7 +146,6 @@ public class BaseConverterTest {
             .withMessage("Bases must be at least 2.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSecondBaseIsZero() {
         BaseConverter baseConverter = new BaseConverter(10, new int[]{7});
@@ -163,7 +155,6 @@ public class BaseConverterTest {
             .withMessage("Bases must be at least 2.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSecondBaseIsNegative() {
         BaseConverter baseConverter = new BaseConverter(2, new int[]{1});
