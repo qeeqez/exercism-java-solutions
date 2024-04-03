@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
@@ -39,6 +40,7 @@ public class ChangeCalculatorTest {
             .containsExactly(4, 4, 15);
     }
 
+    @Disabled("Remove to run test")
     @Test
     // https://en.wikipedia.org/wiki/Change-making_problem#Greedy_method
     public void testLowerElbonianCurrency() {
@@ -48,6 +50,7 @@ public class ChangeCalculatorTest {
             .containsExactly(21, 21, 21);
     }
 
+    @Disabled("Remove to run test")
     @Test
     public void testLargeAmountOfChange() {
         ChangeCalculator changeCalculator = new ChangeCalculator(asList(1, 2, 5, 10, 20, 50, 100));
