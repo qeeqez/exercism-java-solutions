@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.List;
 
 class RelationshipComputer<T> {
@@ -10,26 +11,10 @@ class RelationshipComputer<T> {
         return Relationship.UNEQUAL;
     }
 
-    private boolean isSublist(List<T> firstList, List<T> secondList) {
-        if (secondList.size() > firstList.size()) return false;
-        if (secondList.isEmpty()) return true;
-        if (secondList.size() == firstList.size()) return firstList.equals(secondList);
+    private boolean isSublist(List<T> first, List<T> second) {
+        if (second.size() > first.size()) return false;
+        if (second.isEmpty()) return true;
 
-        boolean isSublist = false;
-        for (int i = 0; i < firstList.size() - secondList.size() + 1; i++) {
-            int k = i;
-            for (T second : secondList) {
-                if (firstList.get(k).equals(second)) {
-                    k++;
-                    isSublist = true;
-                } else {
-                    isSublist = false;
-                    break;
-                }
-            }
-            if (isSublist) return true;
-        }
-
-        return false;
+        return Collections.indexOfSubList(first, second) != -1;
     }
 }
