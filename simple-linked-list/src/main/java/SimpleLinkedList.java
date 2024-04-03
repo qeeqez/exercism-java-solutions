@@ -1,14 +1,25 @@
 class SimpleLinkedList<T> {
+
+    Node<T> lastNode;
+
     SimpleLinkedList() {
-        throw new UnsupportedOperationException("Please implement the SimpleLinkedList() constructor.");
     }
 
     SimpleLinkedList(T[] values) {
-        throw new UnsupportedOperationException("Please implement the SimpleLinkedList(T[]) constructor.");
+        for (T value : values) {
+            push(value);
+        }
     }
 
     void push(T value) {
-        throw new UnsupportedOperationException("Please implement the SimpleLinkedList.push() method.");
+        Node<T> newNode = new Node<>(value);
+        if (lastNode == null) {
+            lastNode = newNode;
+        } else {
+            lastNode.setNext(newNode);
+            newNode.setPrev(lastNode);
+            lastNode = lastNode.getNext();
+        }
     }
 
     T pop() {
@@ -24,6 +35,14 @@ class SimpleLinkedList<T> {
     }
 
     int size() {
-        throw new UnsupportedOperationException("Please implement the SimpleLinkedList.size() method.");
+        int size = 0;
+
+        Node<T> current = lastNode;
+        while (current != null) {
+            current = current.getPrev();
+            size++;
+        }
+
+        return size;
     }
 }

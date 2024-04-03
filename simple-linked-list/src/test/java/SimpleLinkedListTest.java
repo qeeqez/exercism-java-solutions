@@ -14,18 +14,16 @@ public class SimpleLinkedListTest {
         assertThat(list.size()).isEqualTo(0);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void canCreateFromArray() {
         Character[] values = new Character[]{'1', '2', '3'};
-        SimpleLinkedList<Character> list = new SimpleLinkedList<Character>(values);
+        SimpleLinkedList<Character> list = new SimpleLinkedList<>(values);
         assertThat(list.size()).isEqualTo(3);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void popOnEmptyListWillThrow() {
-        SimpleLinkedList<String> list = new SimpleLinkedList<String>();
+        SimpleLinkedList<String> list = new SimpleLinkedList<>();
 
         assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(list::pop);
     }
@@ -33,7 +31,7 @@ public class SimpleLinkedListTest {
     @Disabled("Remove to run test")
     @Test
     public void popReturnsLastAddedElement() {
-        SimpleLinkedList<Integer> list = new SimpleLinkedList<Integer>();
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
         list.push(9);
         list.push(8);
         assertThat(list.size()).isEqualTo(2);
@@ -45,7 +43,7 @@ public class SimpleLinkedListTest {
     @Disabled("Remove to run test")
     @Test
     public void reverseReversesList() {
-        SimpleLinkedList<String> list = new SimpleLinkedList<String>();
+        SimpleLinkedList<String> list = new SimpleLinkedList<>();
         list.push("9");
         list.push("8");
         list.push("7");
@@ -62,7 +60,7 @@ public class SimpleLinkedListTest {
     @Disabled("Remove to run test")
     @Test
     public void canReturnListAsArray() {
-        SimpleLinkedList<Character> list = new SimpleLinkedList<Character>();
+        SimpleLinkedList<Character> list = new SimpleLinkedList<>();
         list.push('9');
         list.push('8');
         list.push('7');
@@ -75,7 +73,7 @@ public class SimpleLinkedListTest {
     @Disabled("Remove to run test")
     @Test
     public void canReturnEmptyListAsEmptyArray() {
-        SimpleLinkedList<Object> list = new SimpleLinkedList<Object>();
+        SimpleLinkedList<Object> list = new SimpleLinkedList<>();
         Object[] expected = {};
         assertThat(list.asArray(Object.class)).isEqualTo(expected);
     }
