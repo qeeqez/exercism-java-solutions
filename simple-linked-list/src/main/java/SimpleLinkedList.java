@@ -1,6 +1,9 @@
+import java.util.NoSuchElementException;
+
 class SimpleLinkedList<T> {
 
-    Node<T> lastNode;
+    private Node<T> lastNode;
+    private int size = 0;
 
     SimpleLinkedList() {
     }
@@ -20,10 +23,20 @@ class SimpleLinkedList<T> {
             newNode.setPrev(lastNode);
             lastNode = lastNode.getNext();
         }
+
+        size++;
     }
 
     T pop() {
-        throw new UnsupportedOperationException("Please implement the SimpleLinkedList.pop() method.");
+        if(lastNode == null) throw new NoSuchElementException();
+
+        T value = lastNode.getValue();
+        lastNode.setNext(null);
+        lastNode = lastNode.getPrev();
+
+        size--;
+
+        return value;
     }
 
     void reverse() {
@@ -35,14 +48,6 @@ class SimpleLinkedList<T> {
     }
 
     int size() {
-        int size = 0;
-
-        Node<T> current = lastNode;
-        while (current != null) {
-            current = current.getPrev();
-            size++;
-        }
-
         return size;
     }
 }

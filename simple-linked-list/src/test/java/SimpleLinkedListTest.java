@@ -28,7 +28,6 @@ public class SimpleLinkedListTest {
         assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(list::pop);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void popReturnsLastAddedElement() {
         SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
