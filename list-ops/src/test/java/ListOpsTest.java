@@ -122,7 +122,7 @@ public class ListOpsTest {
                 ListOps.foldLeft(
                         List.of(1, 2, 3, 4),
                         5,
-                        (acc, el) -> el + acc))
+                        Integer::sum))
                 .isEqualTo(15);
     }
 
@@ -152,7 +152,7 @@ public class ListOpsTest {
                 ListOps.foldRight(
                         List.of(1, 2, 3, 4),
                         5,
-                        (el, acc) -> acc + el))
+                        Integer::sum))
                 .isEqualTo(15);
     }
 
