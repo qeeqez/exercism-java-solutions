@@ -1,6 +1,5 @@
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -17,213 +16,221 @@ public class TransposeTest {
         assertThat(transpose.transpose("")).isEqualTo("");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void twoCharactersInARow() {
         assertThat(transpose.transpose("A1"))
             .isEqualTo(
-                "A" +
-                "\n1");
+                    """
+                            A
+                            1""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void twoCharactersInAColumn() {
         assertThat(
             transpose.transpose(
-                "A\n" +
-                "1"))
+                    """
+                            A
+                            1"""))
             .isEqualTo("A1");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void simple() {
         assertThat(
             transpose.transpose(
-                "ABC\n" +
-                "123"))
+                    """
+                            ABC
+                            123"""))
             .isEqualTo(
-                "A1\n" +
-                "B2\n" +
-                "C3");
+                    """
+                            A1
+                            B2
+                            C3""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void singleLine() {
         assertThat(transpose.transpose("Single line."))
             .isEqualTo(
-                "S\n" +
-                "i\n" +
-                "n\n" +
-                "g\n" +
-                "l\n" +
-                "e\n" +
-                " \n" +
-                "l\n" +
-                "i\n" +
-                "n\n" +
-                "e\n" +
-                ".");
+                    """
+                            S
+                            i
+                            n
+                            g
+                            l
+                            e
+                            \s
+                            l
+                            i
+                            n
+                            e
+                            .""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void firstLineLongerThanSecondLine() {
         assertThat(
             transpose.transpose(
-                "The fourth line.\n" +
-                "The fifth line."))
+                    """
+                            The fourth line.
+                            The fifth line."""))
             .isEqualTo(
-                "TT\n" +
-                "hh\n" +
-                "ee\n" +
-                "  \n" +
-                "ff\n" +
-                "oi\n" +
-                "uf\n" +
-                "rt\n" +
-                "th\n" +
-                "h \n" +
-                " l\n" +
-                "li\n" +
-                "in\n" +
-                "ne\n" +
-                "e.\n" +
-                ".");
+                    """
+                            TT
+                            hh
+                            ee
+                             \s
+                            ff
+                            oi
+                            uf
+                            rt
+                            th
+                            h\s
+                             l
+                            li
+                            in
+                            ne
+                            e.
+                            .""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void secondLineLongerThanFirstLine() {
         assertThat(
             transpose.transpose(
-                "The first line.\n" +
-                "The second line."))
+                    """
+                            The first line.
+                            The second line."""))
             .isEqualTo(
-                "TT\n" +
-                "hh\n" +
-                "ee\n" +
-                "  \n" +
-                "fs\n" +
-                "ie\n" +
-                "rc\n" +
-                "so\n" +
-                "tn\n" +
-                " d\n" +
-                "l \n" +
-                "il\n" +
-                "ni\n" +
-                "en\n" +
-                ".e\n" +
-                " .");
+                    """
+                            TT
+                            hh
+                            ee
+                             \s
+                            fs
+                            ie
+                            rc
+                            so
+                            tn
+                             d
+                            l\s
+                            il
+                            ni
+                            en
+                            .e
+                             .""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void mixedLineLength() {
         assertThat(
             transpose.transpose(
-                "The longest line.\n" +
-                "A long line.\n" +
-                "A longer line.\n" +
-                "A line."))
+                    """
+                            The longest line.
+                            A long line.
+                            A longer line.
+                            A line."""))
             .isEqualTo(
-                "TAAA\n" +
-                "h   \n" +
-                "elll\n" +
-                " ooi\n" +
-                "lnnn\n" +
-                "ogge\n" +
-                "n e.\n" +
-                "glr\n" +
-                "ei \n" +
-                "snl\n" +
-                "tei\n" +
-                " .n\n" +
-                "l e\n" +
-                "i .\n" +
-                "n\n" +
-                "e\n" +
-                ".");
+                    """
+                            TAAA
+                            h  \s
+                            elll
+                             ooi
+                            lnnn
+                            ogge
+                            n e.
+                            glr
+                            ei\s
+                            snl
+                            tei
+                             .n
+                            l e
+                            i .
+                            n
+                            e
+                            .""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void square() {
         assertThat(
             transpose.transpose(
-                "HEART\n" +
-                "EMBER\n" +
-                "ABUSE\n" +
-                "RESIN\n" +
-                "TREND"))
+                    """
+                            HEART
+                            EMBER
+                            ABUSE
+                            RESIN
+                            TREND"""))
             .isEqualTo(
-                "HEART\n" +
-                "EMBER\n" +
-                "ABUSE\n" +
-                "RESIN\n" +
-                "TREND");
+                    """
+                            HEART
+                            EMBER
+                            ABUSE
+                            RESIN
+                            TREND""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void rectangle() {
         assertThat(
             transpose.transpose(
-                "FRACTURE\n" +
-                "OUTLINED\n" +
-                "BLOOMING\n" +
-                "SEPTETTE"))
+                    """
+                            FRACTURE
+                            OUTLINED
+                            BLOOMING
+                            SEPTETTE"""))
             .isEqualTo(
-                "FOBS\n" +
-                "RULE\n" +
-                "ATOP\n" +
-                "CLOT\n" +
-                "TIME\n" +
-                "UNIT\n" +
-                "RENT\n" +
-                "EDGE");
+                    """
+                            FOBS
+                            RULE
+                            ATOP
+                            CLOT
+                            TIME
+                            UNIT
+                            RENT
+                            EDGE""");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void triangle() {
         assertThat(
             transpose.transpose(
-                "T\n" +
-                "EE\n" +
-                "AAA\n" +
-                "SSSS\n" +
-                "EEEEE\n" +
-                "RRRRRR"))
+                    """
+                            T
+                            EE
+                            AAA
+                            SSSS
+                            EEEEE
+                            RRRRRR"""))
             .isEqualTo(
-                "TEASER\n" +
-                " EASER\n" +
-                "  ASER\n" +
-                "   SER\n" +
-                "    ER\n" +
-                "     R");
+                    """
+                            TEASER
+                             EASER
+                              ASER
+                               SER
+                                ER
+                                 R""");
     }
     
-    @Disabled("Remove to run test")
     @Test
     public void jaggedTriangle() {
         assertThat(
             transpose.transpose(
-                "11\n" +
-                "2\n" +
-                "3333\n" +
-                "444\n" +
-                "555555\n" +
-                "66666"))
+                    """
+                            11
+                            2
+                            3333
+                            444
+                            555555
+                            66666"""))
             .isEqualTo(
-                "123456\n" +
-                "1 3456\n" +
-                "  3456\n" +
-                "  3 56\n" +
-                "    56\n" +
-                "    5");
+                    """
+                            123456
+                            1 3456
+                              3456
+                              3 56
+                                56
+                                5""");
     }
 }
