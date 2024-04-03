@@ -24,3 +24,4 @@ jobs:
 
       - name: 🛠️ Build and Test 🧪
         run: ./gradlew test
+        timeout-minutes: 5
